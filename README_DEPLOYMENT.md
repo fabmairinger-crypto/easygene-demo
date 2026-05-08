@@ -49,3 +49,29 @@ Dies ist bewusst keine echte App. Alle Daten sind Dummy-/Mockup-Daten. UI-Elemen
 - Neuer Screen `/app/personal-plan/` für 30-Tage-Trainingsplan, Regenerations-/Nutrient-Kalender und geplante Wearable-/Kalender-Integrationen.
 - Dashboard und Empfehlungen verlinken nun auf den Plan-/Kalender-Screen.
 - Koffein- und Analytics-Screens bleiben als Deep-Dive-Seiten erhalten, stehen aber nicht mehr prominent auf der Startübersicht.
+
+
+## v0.7 – Business Cockpit Erweiterung
+
+Neu ergänzt:
+- `admin/business/partner-pipeline/` – Partnersegmente, Partnerpakete, Minimum-Order-/Setup-Fee-Logik und Datenrechte.
+- `admin/business/use-of-funds/` – indikative C5-Mittelverwendungslogik und 20Q-Aufbaupfad.
+- `admin/business/due-diligence/` – Validierungs- und DD-Gates für CAC, Consent, B2B-LOIs, Labor, Legal/Data und Exit Terms.
+- Business-Navigation und Reiter in `admin/business/`, `admin/business/mc-snapshot/` und `admin/business/umsatz-daten/` auf echte Links umgestellt.
+
+
+## v0.8 – Validierungsstatus
+
+Ergänzt im Investor Cockpit: kompakte Validierungsstatus-Kachel mit transparenter Trennung zwischen modellbasierter MC-Schätzung und noch offenen Real-World-Validierungspunkten (CAC/Channel, Opt-in/Consent, Partner-LOIs/Labor-SLA).
+
+## v0.9 – Customer portal interaction polish
+
+Geändert/neu:
+- Dashboard: „Alle Module anzeigen“ führt jetzt zur Module/Core-Seite.
+- Module/Core: Module hinzufügen, Core aktivieren, Tabs Module/Bundles/Geschenk & Partner, beliebte Module und Bundle-Buttons führen zum Warenkorb.
+- Interpretation: Detox und Regeneration sind als eigene Detail-Screens ergänzt.
+- Interpretation-Übersicht: Koffein, Detox und Regeneration sind direkt anklickbar.
+
+Neue Routen:
+- /app/interpretation/detox/
+- /app/interpretation/regeneration/
