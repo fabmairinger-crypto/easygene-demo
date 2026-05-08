@@ -39,7 +39,7 @@
 <div class="kpi-card"><div class="icon-bubble teal">👥</div><div><div class="kpi-value" id="kpi-customers">136,9k</div><div class="kpi-label">Kunden Q20</div><span class="kpi-footnote">MC-Schätzung · Median</span></div></div>
 <div class="kpi-card"><div class="icon-bubble violet">€</div><div><div class="split-metric"><div class="kpi-value" id="kpi-revenue-q">4,17</div><span class="slash">/</span><div class="kpi-value" id="kpi-revenue-cum">56,3</div></div><div class="kpi-label">Mio. € Umsatz</div><span class="kpi-footnote">Q20/Q · kum. Q1–Q20</span></div></div>
 <div class="kpi-card"><div class="icon-bubble blue">▥</div><div><div class="split-metric"><div class="kpi-value" id="kpi-b2b-q">1,99</div><span class="slash">/</span><div class="kpi-value" id="kpi-b2b-cum">26,8</div></div><div class="kpi-label">Mio. € B2B/Data</div><span class="kpi-footnote">Q20/Q · kum. Q1–Q20</span></div></div>
-<div class="kpi-card"><div class="icon-bubble mint">🛡</div><div><div class="kpi-value" id="kpi-bankruptcy">1,2%</div><div class="kpi-label">Bankruptcy Risk</div><div class="kpi-sub teal" id="kpi-bridge">Bridge P90: 0,00 Mio. €</div></div></div>
+<div class="kpi-card" id="kpi-risk-card"><div class="icon-bubble mint" id="kpi-risk-icon">🛡</div><div><div class="kpi-value" id="kpi-risk-value">1,2%</div><div class="kpi-label" id="kpi-risk-label">Bankruptcy Risk</div><div class="kpi-sub teal" id="kpi-risk-sub">Bridge P90: 0,00 Mio. €</div></div></div>
 <div class="kpi-card"><div class="icon-bubble amber">↗</div><div><div class="kpi-value" id="kpi-multiple">3,5×</div><div class="kpi-label">Investor Multiple</div><span class="kpi-footnote">Q20 · Median</span></div></div>
 </div>
 <div class="tabs investor-tabs"><span class="active" data-demo-action="Demo-Tab: MC Snapshot">MC Snapshot</span><span data-demo-action="Demo-Tab: Umsatzlogik">Umsatzlogik</span><span data-demo-action="Demo-Tab: Datenhebel">Datenhebel</span><span data-demo-action="Demo-Tab: Partner">Partner</span><span data-demo-action="Demo-Tab: Validierung">Validierung</span></div>
@@ -51,7 +51,7 @@
 <div class="metric-tile" id="tile-capacity"><span>Datenkapazität Q20</span><b id="metric-capacity">97,1k</b><em>lizenzierbare Reuse-Kapazität</em></div>
 <div class="metric-tile" id="tile-cac"><span>Effektiver CAC Q20</span><b id="metric-cac">61 €</b><em>modellbasierter Median</em></div>
 </div>
-<div class="source-note">Kumulierte Werte wurden ergänzend aus dem bereitgestellten Simulator über Q1–Q20 berechnet; die Q20/Q-Werte entsprechen der MC-Referenztabelle.</div></div>
+<div class="source-note">Kumulierte Werte wurden ergänzend aus dem bereitgestellten Simulator über Q1–Q20 berechnet; die Q20/Q-Werte entsprechen der MC-Referenztabelle. Im 2,5-Mio.-Case wird die Bankruptcy-Rate als unfinanziertes Cash-gap-Risiko gelesen; die P90-Bridge deckt ca. 90% dieser Liquiditätslücken ab.</div></div>
 <div class="card slim"><h3>20Q-Plattformpfad</h3><p>Die Investition finanziert parallele Pfade statt sequenzieller Minimalentwicklung.</p><div class="timeline-investor">
 <div class="timeline-step"><strong>Q1–Q4</strong><b id="tl1-title">Launch &amp; Produktmix</b><span id="tl1-side">Core · Bundle</span></div>
 <div class="timeline-step"><strong>Q5–Q8</strong><b id="tl2-title">B2B/Data startet</b><span id="tl2-side">DataPack · Consent</span></div>
@@ -64,7 +64,7 @@
 <div class="card slim"><h3>Use of Funds</h3><div class="use-list"><span>Brand &amp; Performance Marketing</span><span>Product / App / Wearables / Kalender</span><span>Data Governance, DSFA, Consent-UX</span><span>B2B, LOIs, Offtakes, Partner-APIs</span></div></div>
 <div class="card slim"><h3>Validierungs-Gates</h3><div class="dd-list"><span><b class="risk-good">✓</b> Opt-in / Consent-UX testen</span><span><b class="risk-good">✓</b> DataPack-LOIs / Mindestabnahmen</span><span><b class="risk-watch">!</b> CAC über echte Kanäle validieren</span><span><b class="risk-watch">!</b> Legal, DPA/AVV, Zweckbindung prüfen</span></div></div>
 </div>
-<div class="investor-disclaimer"><span>⚠️</span><div><b>Disclaimer.</b> Diese Ansicht ist ein statischer Demo-Prototyp und verwendet modellbasierte Monte-Carlo-Schätzungen aus easyGene MC v0.3.0. Die Szenarien C5/Hold und 2,5 Mio. € Serious Build + Bridge sind nicht geprüft, keine Finanzplanung, keine Steuer-/Rechtsberatung und kein öffentliches Angebot. Datenlizenzierung, Consent, DPA/AVV, Labor-SLAs, CAC und B2B-Abnehmer müssen vor verbindlichen Gesprächen separat validiert werden.</div></div>
+<div class="investor-disclaimer"><span>⚠️</span><div><b>Disclaimer.</b> Diese Ansicht ist ein statischer Demo-Prototyp und verwendet modellbasierte Monte-Carlo-Schätzungen aus easyGene MC v0.3.0. Die Szenarien C5/Hold und 2,5 Mio. € Serious Build + Bridge sind nicht geprüft; die 2,5-Mio.-Darstellung interpretiert die unfinanzierte Bankruptcy-Rate als Cash-gap-Risiko vor geplanter Bridge. Keine Finanzplanung, keine Steuer-/Rechtsberatung und kein öffentliches Angebot. Datenlizenzierung, Consent, DPA/AVV, Labor-SLAs, CAC und B2B-Abnehmer müssen vor verbindlichen Gesprächen separat validiert werden.</div></div>
 </section>
 </main>
 </div>
@@ -78,7 +78,7 @@
       subtitle: 'Der Fokus liegt nicht auf einem einmaligen Testverkauf, sondern auf Kundenbasis, freiwilligem Consent, Dataset-Stock, B2B/DataPack, Partnerlogik, App/Wearables und wiederkehrender Nutzung.',
       tagMain: 'MC-Schätzung Q20', tagRuns: '10.000 Läufe je Szenario × Exit', tagStructure: 'Strategic Hold · kein früher Company-Cash-Out',
       askLabel: 'Finanzierungsrunde', askValue: '5,0 Mio. €', askCopy: '<b>Category Build</b><br/>Brand, App, Datenstock, B2B/Partner und Compliance parallel aufbauen.',
-      customers: '136,9k', revenueQ: '4,17', revenueCum: '56,3', b2bQ: '1,99', b2bCum: '26,8', bankruptcy: '1,2%', bridge: 'Bridge P90: 0,00 Mio. €', multiple: '3,5×',
+      customers: '136,9k', revenueQ: '4,17', revenueCum: '56,3', b2bQ: '1,99', b2bCum: '26,8', riskValue: '1,2%', riskLabel: 'Bankruptcy Risk', riskSub: 'Bridge P90: 0,00 Mio. €', riskMode: 'good', multiple: '3,5×',
       cardTitle: 'C5 · Category Build · Hold', cardCopy: 'Fokussierte Investor-Lesart auf den robusten Plattformcase ohne harte frühe Rückzahlung aus der operativen Gesellschaft.',
       cash: '15,03 Mio. €', cashSub: 'Median · Strategic Hold', ebitda: '100% / 100%', capacity: '97,1k', cac: '61 €',
       tileCash: 'good', tileEbitda: 'good',
@@ -90,7 +90,7 @@
       subtitle: 'Der B-Case ist operativ stark und erreicht sehr häufig positive EBITDA-Gates. Das Risiko liegt primär im Cash-Timing, daher wird eine geplante Bridge-/Follow-on-Tranche von ca. 1,0 Mio. € mitgedacht.',
       tagMain: 'MC-Schätzung Q20', tagRuns: 'Serious Build + Bridge-Logik', tagStructure: 'Strategic Hold · Bridge P90 ca. 0,91 Mio. €',
       askLabel: 'Finanzierungsstruktur', askValue: '2,5 Mio. €', askCopy: '<b>Serious Build + Bridge</b><br/>Seed-Runde plus konditionale Bridge/Follow-on von ca. 1,0 Mio. € an Q8/Q12-Meilensteine koppeln.',
-      customers: '53,9k', revenueQ: '1,25', revenueCum: '16,1', b2bQ: '0,48', b2bCum: '6,1', bankruptcy: '81,9%', bridge: 'Bridge P90: 0,91 Mio. €', multiple: '1,3×',
+      customers: '53,9k', revenueQ: '1,25', revenueCum: '16,1', b2bQ: '0,48', b2bCum: '6,1', riskValue: '0,91 Mio. €', riskLabel: 'Bridge P90', riskSub: 'geplante Tranche; ohne Bridge: 81,9% Cash-gap Risiko', riskMode: 'warning', multiple: '1,3×',
       cardTitle: '2,5 Mio. € · Serious Build + Bridge', cardCopy: 'Operativ tragfähiger Aufbaucase: Q12/Q20 werden sehr häufig EBITDA-positiv, aber der Cash-Tiefpunkt muss durch eine geplante Bridge abgesichert werden.',
       cash: '1,36 Mio. €', cashSub: 'Median nach Überstehen des Tiefpunkts', ebitda: '93,6% / 98,8%', capacity: '12,6k', cac: '69 €',
       tileCash: 'warning', tileEbitda: 'good',
@@ -107,8 +107,12 @@
     setText('tag-main',s.tagMain); setText('tag-runs',s.tagRuns); setText('tag-structure',s.tagStructure);
     setText('ask-label',s.askLabel); setText('ask-value',s.askValue); setHtml('ask-copy',s.askCopy);
     setText('kpi-customers',s.customers); setText('kpi-revenue-q',s.revenueQ); setText('kpi-revenue-cum',s.revenueCum);
-    setText('kpi-b2b-q',s.b2bQ); setText('kpi-b2b-cum',s.b2bCum); setText('kpi-bankruptcy',s.bankruptcy);
-    setText('kpi-bridge',s.bridge); setText('kpi-multiple',s.multiple);
+    setText('kpi-b2b-q',s.b2bQ); setText('kpi-b2b-cum',s.b2bCum);
+    setText('kpi-risk-value',s.riskValue); setText('kpi-risk-label',s.riskLabel); setText('kpi-risk-sub',s.riskSub); setText('kpi-multiple',s.multiple);
+    const riskValueEl=document.getElementById('kpi-risk-value'); const riskSubEl=document.getElementById('kpi-risk-sub'); const riskIconEl=document.getElementById('kpi-risk-icon');
+    if(riskValueEl){ riskValueEl.style.color = s.riskMode==='warning' ? '#B95E00' : '#008C7A'; }
+    if(riskSubEl){ riskSubEl.style.color = s.riskMode==='warning' ? '#B95E00' : '#008C7A'; }
+    if(riskIconEl){ riskIconEl.textContent = s.riskMode==='warning' ? '↯' : '🛡'; }
     setText('scenario-card-title',s.cardTitle); setText('scenario-card-copy',s.cardCopy);
     setText('metric-cash',s.cash); setText('metric-cash-sub',s.cashSub); setText('metric-ebitda',s.ebitda);
     setText('metric-capacity',s.capacity); setText('metric-cac',s.cac);
