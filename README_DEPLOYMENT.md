@@ -1,0 +1,43 @@
+# easyGene Interactive Demo v0.1
+
+Statischer Website-Prototyp aus den vorhandenen easyGene-HTML-Screens.
+
+## Inhalt
+
+- `index.html` – Demo-Startseite
+- `app/.../index.html` – routefähige Demo-Seiten
+- `admin/.../index.html` – interne/Admin-Demo-Screens
+- `styles.css` – Originaldesign
+- `demo-interactions.css` – Hover-States, Cursor, Demo-Badge, Toasts
+- `demo-interactions.js` – Pseudo-Interaktionen
+- `assets/` – Logo
+- `screens/` – PNG-Renderings als Referenz
+
+## Wichtige Routen
+
+- `/app/dashboard/`
+- `/app/modules-core/`
+- `/app/personal-overview/`
+- `/app/genotypes/`
+- `/app/interpretation/`
+- `/app/interpretation/koffein/`
+- `/app/overview/koffein/` alias
+- `/app/recommendations/`
+- `/app/biology/`
+- `/app/snp-deep-dive/`
+- `/app/analytics/`
+- `/app/privacy-export/`
+- `/app/cart/`
+- `/admin/business/`
+
+## Google Sites Empfehlung
+
+Nicht die ZIP direkt in Google Sites hochladen. Besser:
+
+1. Ordner bei Netlify, GitHub Pages oder Firebase Hosting veröffentlichen.
+2. In Google Sites per „Full page embed“ oder normalem Link einbinden.
+3. Für eine Landingpage nur den Demo-Link setzen; für einzelne Unterseiten jeweils die passende Route einbetten.
+
+## Status
+
+Dies ist bewusst keine echte App. Alle Daten sind Dummy-/Mockup-Daten. UI-Elemente haben Hover-States und Demo-Toasts; Hauptnavigation und einige Buttons sind echt verlinkt.
