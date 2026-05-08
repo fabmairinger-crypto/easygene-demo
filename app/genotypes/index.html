@@ -1,5 +1,58 @@
 <!DOCTYPE html>
-<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Genotyp-Übersicht</title><link href="../../styles.css" rel="stylesheet"/><link href="../../demo-interactions.css" rel="stylesheet"/><script defer="True" src="../../demo-interactions.js"></script><meta content="noindex,nofollow" name="robots"/></head>
+<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Genotyp-Übersicht</title><link href="../../styles.css" rel="stylesheet"/><link href="../../demo-interactions.css" rel="stylesheet"/><script defer="True" src="../../demo-interactions.js"></script><meta content="noindex,nofollow" name="robots"/>
+<style>
+  .geno-tabs span{cursor:pointer;user-select:none;transition:all .18s ease;}
+  .geno-tabs span:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(15,23,42,.08);}
+  .geno-view{display:none;animation:genoFade .18s ease-out;}
+  .geno-view.active{display:block;}
+  @keyframes genoFade{from{opacity:.2;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+  .gene-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px;}
+  .gene-card{position:relative;overflow:hidden;border:1px solid rgba(226,232,240,.95);border-radius:22px;background:#fff;padding:18px;box-shadow:0 16px 36px rgba(15,23,42,.05);transition:all .2s ease;}
+  .gene-card:hover{transform:translateY(-3px);box-shadow:0 22px 48px rgba(15,23,42,.10);border-color:rgba(0,140,122,.24);}
+  .gene-card:before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:linear-gradient(90deg,#008C7A,#7C5CE6);opacity:.85;}
+  .gene-card.detox:before{background:linear-gradient(90deg,#008C7A,#51d4ba);} 
+  .gene-card.nutrient:before{background:linear-gradient(90deg,#F59E0B,#ffd166);} 
+  .gene-card.training:before{background:linear-gradient(90deg,#7C5CE6,#a993ff);} 
+  .gene-card.stress:before{background:linear-gradient(90deg,#07164A,#4b63c7);} 
+  .gene-card.aging:before{background:linear-gradient(90deg,#D94A4A,#f7a1a1);} 
+  .gene-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:12px;}
+  .gene-symbol{font-size:24px;font-weight:800;color:#07164A;letter-spacing:-.03em;}
+  .gene-name{font-size:12px;color:#64748B;margin-top:2px;line-height:1.35;}
+  .gene-pill{font-size:11px;font-weight:800;border-radius:999px;padding:6px 9px;background:#E8F7F3;color:#008C7A;white-space:nowrap;}
+  .gene-card.nutrient .gene-pill{background:#FFF7E6;color:#B56B00;}
+  .gene-card.training .gene-pill{background:#F1EEFF;color:#6B4AD7;}
+  .gene-card.stress .gene-pill{background:#EEF2FF;color:#3346A3;}
+  .gene-card.aging .gene-pill{background:#FFF1F1;color:#C73838;}
+  .gene-desc{font-size:13px;line-height:1.55;color:#475569;margin:8px 0 14px;min-height:62px;}
+  .mini-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0;}
+  .mini-metric{background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:10px 9px;}
+  .mini-metric b{display:block;color:#07164A;font-size:15px;line-height:1.1;}
+  .mini-metric span{font-size:10.5px;color:#64748B;text-transform:uppercase;font-weight:800;letter-spacing:.04em;}
+  .geno-link-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+  .geno-chip{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:7px 10px;background:#F8FAFC;border:1px solid #E2E8F0;color:#475569;font-size:12px;font-weight:700;text-decoration:none;transition:all .15s ease;}
+  .geno-chip:hover{background:#E8F7F3;color:#008C7A;border-color:#BEEADF;transform:translateY(-1px);}
+  .category-map{display:grid;grid-template-columns:1.05fr .95fr;gap:16px;margin-top:16px;}
+  .cat-card{border-radius:24px;border:1px solid #E2E8F0;background:#fff;box-shadow:0 16px 36px rgba(15,23,42,.05);padding:18px;transition:all .2s ease;}
+  .cat-card:hover{transform:translateY(-2px);box-shadow:0 22px 46px rgba(15,23,42,.10);}
+  .cat-row{display:grid;grid-template-columns:54px 1fr 78px;gap:13px;align-items:center;padding:13px 0;border-bottom:1px solid #EEF2F7;}
+  .cat-row:last-child{border-bottom:0;}
+  .cat-icon{width:44px;height:44px;border-radius:15px;display:grid;place-items:center;font-size:20px;background:#E8F7F3;}
+  .cat-title{font-weight:800;color:#07164A;margin-bottom:3px;}
+  .cat-sub{font-size:12.5px;color:#64748B;line-height:1.35;}
+  .cat-score{height:36px;border-radius:999px;display:grid;place-items:center;font-weight:900;font-size:13px;color:#07164A;background:#F8FAFC;border:1px solid #E2E8F0;}
+  .bar-stack{display:flex;gap:6px;height:12px;margin:10px 0 3px;}
+  .bar-stack span{border-radius:999px;display:block;}
+  .bar-detox{background:#008C7A}.bar-nutrient{background:#F59E0B}.bar-training{background:#7C5CE6}.bar-stress{background:#07164A}.bar-aging{background:#D94A4A}.bar-sleep{background:#38BDF8}
+  .evidence-list{display:grid;gap:10px;margin-top:12px;}
+  .evidence-item{display:flex;gap:10px;align-items:flex-start;padding:12px;border-radius:16px;background:#F8FAFC;border:1px solid #E2E8F0;}
+  .evidence-item b{color:#07164A}.evidence-item p{margin:3px 0 0;color:#64748B;font-size:12.5px;line-height:1.42;}
+  .tab-hint{font-size:12px;color:#64748B;margin-top:10px;display:flex;gap:8px;align-items:center;}
+  .badge.mint{background:#DDF6EC;color:#007A6D;}
+  .clickable-row{cursor:pointer;transition:background .15s ease;}
+  .clickable-row:hover{background:#F8FAFC;}
+  @media(max-width:1100px){.gene-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.category-map{grid-template-columns:1fr;}}
+</style>
+</head>
 <body>
 <div class="frame">
 <div class="browser">
@@ -17,39 +70,84 @@
 </aside>
 <main class="main"><div class="demo-badge">Demo-Prototyp</div>
 <header class="page-head">
-<div><h1>Genotyp-Übersicht</h1><p>Ihre gefundenen genetischen Varianten im Überblick.</p></div>
+<div><h1>Genotyp-Übersicht</h1><p>Ihre Varianten, Gene und Kategorien in einer strukturierten Ansicht.</p></div>
 <div class="actions"><button class="btn ghost" data-demo-action="⚙ Filter &amp; Einstellungen">⚙ Filter &amp; Einstellungen</button><button class="btn primary" data-demo-action="⇩ Daten exportieren">⇩ Daten exportieren</button></div>
 </header>
 <section class="content">
 <div class="grid kpi5">
-<div class="kpi-card">
-<div class="icon-bubble mint">🧬</div>
-<div><div class="kpi-value">128</div><div class="kpi-label">relevante SNPs</div><div class="kpi-sub mint">12 hoch relevant</div></div>
+<div class="kpi-card"><div class="icon-bubble mint">🧬</div><div><div class="kpi-value">128</div><div class="kpi-label">relevante SNPs</div><div class="kpi-sub mint">12 hoch relevant</div></div></div>
+<div class="kpi-card"><div class="icon-bubble violet">▥</div><div><div class="kpi-value">34</div><div class="kpi-label">Gene betroffen</div><div class="kpi-sub violet">in 12 Kategorien</div></div></div>
+<div class="kpi-card"><div class="icon-bubble amber">!</div><div><div class="kpi-value">4</div><div class="kpi-label">Varianten mit Potenzial</div><div class="kpi-sub amber">für Optimierung</div></div></div>
+<div class="kpi-card"><div class="icon-bubble blue">🛡</div><div><div class="kpi-value">Exzellent</div><div class="kpi-label">Datenqualität</div><div class="kpi-sub blue">100% vollständig</div></div></div>
+<div class="kpi-card"><div class="icon-bubble mint">◉</div><div><div class="kpi-value">94%</div><div class="kpi-label">Genom abgedeckt</div><div class="kpi-sub mint">~ 28,4× mittlere Tiefe</div></div></div>
 </div>
-<div class="kpi-card">
-<div class="icon-bubble violet">▥</div>
-<div><div class="kpi-value">34</div><div class="kpi-label">Gene betroffen</div><div class="kpi-sub violet">in 12 Kategorien</div></div>
-</div>
-<div class="kpi-card">
-<div class="icon-bubble amber">!</div>
-<div><div class="kpi-value">4</div><div class="kpi-label">Varianten mit Potenzial</div><div class="kpi-sub amber">für Optimierung</div></div>
-</div>
-<div class="kpi-card">
-<div class="icon-bubble blue">🛡</div>
-<div><div class="kpi-value">Exzellent</div><div class="kpi-label">Datenqualität</div><div class="kpi-sub blue">100% vollständig</div></div>
-</div>
-<div class="kpi-card">
-<div class="icon-bubble mint">◉</div>
-<div><div class="kpi-value">94%</div><div class="kpi-label">Genom abgedeckt</div><div class="kpi-sub mint">~ 28,4× mittlere Tiefe</div></div>
-</div>
-</div>
-<div class="tabs"><span class="active" data-demo-action="Demo-Tab: Varianten (SNPs)" title="Demo-Tab ohne echte Datenlogik">Varianten (SNPs)</span><span data-demo-action="Demo-Tab: Gene" title="Demo-Tab ohne echte Datenlogik">Gene</span><span data-demo-action="Demo-Tab: Kategorien" title="Demo-Tab ohne echte Datenlogik">Kategorien</span></div>
+
+<div class="tabs geno-tabs" role="tablist" aria-label="Genotyp-Ansicht wechseln"><span class="active" data-geno-tab="variants" role="tab" aria-selected="true">Varianten (SNPs)</span><span data-geno-tab="genes" role="tab" aria-selected="false">Gene</span><span data-geno-tab="categories" role="tab" aria-selected="false">Kategorien</span></div>
 <div class="toolbar"><div class="search">SNP, Gen oder rsID suchen… <span>⌕</span></div><div class="select">Alle Kategorien ▾</div><div class="select">Alle Relevanzstufen ▾</div><div class="select">Alle Genotypen ▾</div><button class="btn ghost small" data-demo-action="Spalten anpassen">Spalten anpassen</button></div>
-<div class="card table-card"><table><thead><tr><th>SNP / rsID</th><th>Gen</th><th>Chromosom</th><th>Position</th><th>Ihr Genotyp</th><th>Relevanz</th><th>Kategorie</th><th>Auswirkung</th><th></th></tr></thead><tbody><tr><td class="link">rs1801133</td><td>MTHFR</td><td>1</td><td>11,778,554</td><td><span class="badge blue">CT</span></td><td><span class="badge red">Hoch</span></td><td>Detox, Stoffwechsel</td><td>Enzymaktivität reduziert</td><td class="arrow">›</td></tr><tr><td class="link">rs2228570</td><td>VDR</td><td>12</td><td>47,889,145</td><td><span class="badge blue">AG</span></td><td><span class="badge red">Hoch</span></td><td>Mikronährstoffe, Vitamin D</td><td>Vitamin-D-Sensitivität erhöht</td><td class="arrow">›</td></tr><tr><td class="link">rs762551</td><td>CYP1A2</td><td>15</td><td>75,041,957</td><td><span class="badge blue">AA</span></td><td><span class="badge amber">Mittel</span></td><td>Detox, Koffein</td><td>Koffeinabbau schneller</td><td class="arrow">›</td></tr><tr><td class="link">rs4680</td><td>COMT</td><td>22</td><td>19,935,626</td><td><span class="badge blue">AA</span></td><td><span class="badge amber">Mittel</span></td><td>Stress, Neurotransmitter</td><td>Dopaminabbau verändert</td><td class="arrow">›</td></tr><tr><td class="link">rs174537</td><td>FADS1</td><td>11</td><td>61,571,706</td><td><span class="badge blue">TT</span></td><td><span class="badge gray">Niedrig</span></td><td>Ernährung, Omega-3</td><td>Fettsäureprofil beachten</td><td class="arrow">›</td></tr><tr><td class="link">rs1800497</td><td>DRD2</td><td>11</td><td>113,400,106</td><td><span class="badge blue">CT</span></td><td><span class="badge gray">Niedrig</span></td><td>Mental Resilience</td><td>Belohnungssensitivität normal</td><td class="arrow">›</td></tr><tr><td class="link">rs12979860</td><td>IFNL3</td><td>19</td><td>39,238,750</td><td><span class="badge blue">CC</span></td><td><span class="badge gray">Niedrig</span></td><td>Immunität, Entzündung</td><td>Entzündungsreaktion normal</td><td class="arrow">›</td></tr><tr><td class="link">rs11191548</td><td>COL1A1</td><td>17</td><td>50,199,884</td><td><span class="badge blue">GA</span></td><td><span class="badge gray">Niedrig</span></td><td>Haut, Anti-Aging</td><td>Kollagen-Synthese normal</td><td class="arrow">›</td></tr></tbody></table><div class="table-foot"><span>Zeige 1 bis 8 von 128 Ergebnissen</span><div class="pager"><button data-demo-action="‹">‹</button><button class="active" data-demo-action="1">1</button><button data-demo-action="2">2</button><button data-demo-action="3">3</button><span>…</span><button data-demo-action="16">16</button><button data-demo-action="›">›</button></div></div></div>
-<div class="three-col lower"><div class="card info-card"><div class="icon-bubble mint">💡</div><div><h3>Was bedeuten diese Informationen?</h3><p>Diese Übersicht zeigt genetische Varianten, die Ihren Stoffwechsel oder Ihr Wohlbefinden beeinflussen können.</p><button class="btn ghost small" data-demo-action="Zur Erklärung →">Zur Erklärung →</button></div></div><div class="card"><h3>Relevanzstufen</h3><p><span class="dot red"></span> Hoch — starker wissenschaftlicher Zusammenhang</p><p><span class="dot amber"></span> Mittel — moderater Zusammenhang</p><p><span class="dot gray"></span> Niedrig — indirekter Zusammenhang</p></div><div class="card data-quality"><h3>Datenqualität</h3><p>Ihre genetischen Daten sind vollständig und zuverlässig auswertbar.</p><ul><li>100% vollständig</li><li>Hohe Abdeckung: 94%</li><li>Mittlere Tiefe: ~28,4×</li></ul></div></div>
+
+<div class="geno-view active" id="geno-view-variants" role="tabpanel">
+  <div class="card table-card"><table><thead><tr><th>SNP / rsID</th><th>Gen</th><th>Chromosom</th><th>Position</th><th>Ihr Genotyp</th><th>Relevanz</th><th>Kategorie</th><th>Auswirkung</th><th></th></tr></thead><tbody>
+  <tr class="clickable-row" onclick="location.href='../interpretation/detox/'"><td class="link">rs1801133</td><td>MTHFR</td><td>1</td><td>11,778,554</td><td><span class="badge blue">CT</span></td><td><span class="badge red">Hoch</span></td><td>Detox, Stoffwechsel</td><td>Enzymaktivität reduziert</td><td class="arrow">›</td></tr>
+  <tr class="clickable-row" onclick="location.href='../recommendations/'"><td class="link">rs2228570</td><td>VDR</td><td>12</td><td>47,889,145</td><td><span class="badge blue">AG</span></td><td><span class="badge red">Hoch</span></td><td>Mikronährstoffe, Vitamin D</td><td>Vitamin-D-Sensitivität erhöht</td><td class="arrow">›</td></tr>
+  <tr class="clickable-row" onclick="location.href='../interpretation/koffein/'"><td class="link">rs762551</td><td>CYP1A2</td><td>15</td><td>75,041,957</td><td><span class="badge blue">AA</span></td><td><span class="badge amber">Mittel</span></td><td>Detox, Koffein</td><td>Koffeinabbau schneller</td><td class="arrow">›</td></tr>
+  <tr class="clickable-row" onclick="location.href='../interpretation/regeneration/'"><td class="link">rs4680</td><td>COMT</td><td>22</td><td>19,935,626</td><td><span class="badge blue">AA</span></td><td><span class="badge amber">Mittel</span></td><td>Stress, Neurotransmitter</td><td>Dopaminabbau verändert</td><td class="arrow">›</td></tr>
+  <tr class="clickable-row" onclick="location.href='../recommendations/'"><td class="link">rs174537</td><td>FADS1</td><td>11</td><td>61,571,706</td><td><span class="badge blue">TT</span></td><td><span class="badge gray">Niedrig</span></td><td>Ernährung, Omega-3</td><td>Fettsäureprofil beachten</td><td class="arrow">›</td></tr>
+  <tr class="clickable-row" onclick="location.href='../personal-plan/'"><td class="link">rs1815739</td><td>ACTN3</td><td>11</td><td>66,560,665</td><td><span class="badge blue">CT</span></td><td><span class="badge amber">Mittel</span></td><td>Training, Regeneration</td><td>Kraft-/Ausdauerprofil gemischt</td><td class="arrow">›</td></tr>
+  <tr class="clickable-row" onclick="location.href='../personal-plan/'"><td class="link">rs1801260</td><td>CLOCK</td><td>4</td><td>56,353,026</td><td><span class="badge blue">AG</span></td><td><span class="badge gray">Niedrig</span></td><td>Schlaf, Chronotyp</td><td>Abendneigung leicht erhöht</td><td class="arrow">›</td></tr>
+  <tr class="clickable-row" onclick="location.href='../snp-deep-dive/'"><td class="link">rs11191548</td><td>COL1A1</td><td>17</td><td>50,199,884</td><td><span class="badge blue">GA</span></td><td><span class="badge gray">Niedrig</span></td><td>Haut, Anti-Aging</td><td>Kollagen-Synthese normal</td><td class="arrow">›</td></tr>
+  </tbody></table><div class="table-foot"><span>Zeige 1 bis 8 von 128 Ergebnissen</span><div class="pager"><button data-demo-action="‹">‹</button><button class="active" data-demo-action="1">1</button><button data-demo-action="2">2</button><button data-demo-action="3">3</button><span>…</span><button data-demo-action="16">16</button><button data-demo-action="›">›</button></div></div></div>
+</div>
+
+<div class="geno-view" id="geno-view-genes" role="tabpanel">
+  <div class="card info-card"><div class="icon-bubble violet">▥</div><div><h3>Gene als funktionelle Übersicht</h3><p>Diese Ansicht gruppiert Varianten nach Genen und zeigt, in welchen Modulen sie interpretiert werden. Die Werte sind Demo-Inhalte für den klickbaren Prototyp.</p><div class="tab-hint">↳ Gene öffnen Detailseiten, Empfehlungen oder den Plan & Kalender.</div></div></div>
+  <div class="gene-grid">
+    <article class="gene-card detox" onclick="location.href='../interpretation/detox/'"><div class="gene-top"><div><div class="gene-symbol">MTHFR</div><div class="gene-name">Methylen-Tetrahydrofolat-Reduktase</div></div><span class="gene-pill">Detox</span></div><p class="gene-desc">Beteiligt an Folat-/Methylierungswegen. Im Demo-Profil als möglicher Hebel für B-Vitamin- und Homocystein-nahe Empfehlungen dargestellt.</p><div class="mini-metrics"><div class="mini-metric"><b>2</b><span>SNPs</span></div><div class="mini-metric"><b>hoch</b><span>Relevanz</span></div><div class="mini-metric"><b>CT</b><span>Top-Call</span></div></div><div class="geno-link-row"><a class="geno-chip" href="../interpretation/detox/">Detox öffnen</a><a class="geno-chip" href="../recommendations/">Empfehlungen</a></div></article>
+    <article class="gene-card detox" onclick="location.href='../interpretation/koffein/'"><div class="gene-top"><div><div class="gene-symbol">CYP1A2</div><div class="gene-name">Cytochrom P450 1A2</div></div><span class="gene-pill">Koffein</span></div><p class="gene-desc">Zentral für den Koffeinabbau. Der Demo-Genotyp wird als schnellerer Koffeinmetabolismus interpretiert und mit Timing-Empfehlungen verknüpft.</p><div class="mini-metrics"><div class="mini-metric"><b>1</b><span>SNP</span></div><div class="mini-metric"><b>mittel</b><span>Relevanz</span></div><div class="mini-metric"><b>AA</b><span>Call</span></div></div><div class="geno-link-row"><a class="geno-chip" href="../interpretation/koffein/">Koffein öffnen</a><a class="geno-chip" href="../personal-plan/">Plan</a></div></article>
+    <article class="gene-card nutrient" onclick="location.href='../recommendations/'"><div class="gene-top"><div><div class="gene-symbol">VDR</div><div class="gene-name">Vitamin-D-Rezeptor</div></div><span class="gene-pill">Mikronährstoffe</span></div><p class="gene-desc">Demo-Ansicht für Vitamin-D-Sensitivität, Knochen-/Immunbezug und individualisierte Supplement-/Kontrolllogik.</p><div class="mini-metrics"><div class="mini-metric"><b>3</b><span>SNPs</span></div><div class="mini-metric"><b>hoch</b><span>Relevanz</span></div><div class="mini-metric"><b>AG</b><span>Top-Call</span></div></div><div class="geno-link-row"><a class="geno-chip" href="../recommendations/">Empfehlungen</a><a class="geno-chip" href="../cart/">Modul buchen</a></div></article>
+    <article class="gene-card stress" onclick="location.href='../interpretation/regeneration/'"><div class="gene-top"><div><div class="gene-symbol">COMT</div><div class="gene-name">Catechol-O-Methyltransferase</div></div><span class="gene-pill">Resilience</span></div><p class="gene-desc">Verknüpft Stressverarbeitung, Neurotransmitter-Abbau und Regenerationsbedarf. In der Demo mit Schlaf-/Erholungsroutinen verbunden.</p><div class="mini-metrics"><div class="mini-metric"><b>2</b><span>SNPs</span></div><div class="mini-metric"><b>mittel</b><span>Relevanz</span></div><div class="mini-metric"><b>AA</b><span>Call</span></div></div><div class="geno-link-row"><a class="geno-chip" href="../interpretation/regeneration/">Regeneration</a><a class="geno-chip" href="../personal-plan/">Kalender</a></div></article>
+    <article class="gene-card training" onclick="location.href='../personal-plan/'"><div class="gene-top"><div><div class="gene-symbol">ACTN3</div><div class="gene-name">Alpha-Actinin-3</div></div><span class="gene-pill">Training</span></div><p class="gene-desc">Demo-Modul für Kraft-/Ausdauerprofil, Belastungssteuerung und personalisierte Trainingsplanung über 30 Tage.</p><div class="mini-metrics"><div class="mini-metric"><b>1</b><span>SNP</span></div><div class="mini-metric"><b>mittel</b><span>Relevanz</span></div><div class="mini-metric"><b>CT</b><span>Call</span></div></div><div class="geno-link-row"><a class="geno-chip" href="../personal-plan/">Trainingsplan</a><a class="geno-chip" href="../recommendations/">Empfehlungen</a></div></article>
+    <article class="gene-card aging" onclick="location.href='../snp-deep-dive/'"><div class="gene-top"><div><div class="gene-symbol">COL1A1</div><div class="gene-name">Kollagen Typ I alpha 1</div></div><span class="gene-pill">Anti-Aging</span></div><p class="gene-desc">Demo-Bezug zu Hautstruktur, Kollagenstoffwechsel und Beauty-/Longevity-Modulen ohne medizinischen Diagnoseanspruch.</p><div class="mini-metrics"><div class="mini-metric"><b>2</b><span>SNPs</span></div><div class="mini-metric"><b>niedrig</b><span>Relevanz</span></div><div class="mini-metric"><b>GA</b><span>Top-Call</span></div></div><div class="geno-link-row"><a class="geno-chip" href="../snp-deep-dive/">SNP Deep Dive</a><a class="geno-chip" href="../modules-core/">Modul ansehen</a></div></article>
+  </div>
+</div>
+
+<div class="geno-view" id="geno-view-categories" role="tabpanel">
+  <div class="category-map">
+    <div class="cat-card"><h3>Kategorien nach genetischem Signal</h3><p>Die Kategorien bündeln Gene und SNPs zu verständlichen Lifestyle-Modulen. Score-Werte sind Demo-Schätzungen für den Prototyp.</p>
+      <div class="cat-row" onclick="location.href='../interpretation/detox/'"><div class="cat-icon">🌿</div><div><div class="cat-title">Detox & Methylierung</div><div class="cat-sub">MTHFR, CYP1A2, GST-nahe Marker · Fokus: Stoffwechsel, Koffein, Methylierung</div><div class="bar-stack"><span class="bar-detox" style="width:54%"></span><span class="bar-nutrient" style="width:22%"></span><span class="bar-stress" style="width:14%"></span></div></div><div class="cat-score">74%</div></div>
+      <div class="cat-row" onclick="location.href='../recommendations/'"><div class="cat-icon">☀️</div><div><div class="cat-title">Mikronährstoffe</div><div class="cat-sub">VDR, FADS1, Folat-/Vitamin-D-Bezug · Fokus: Nährstofftiming und Kontrollen</div><div class="bar-stack"><span class="bar-nutrient" style="width:64%"></span><span class="bar-detox" style="width:16%"></span></div></div><div class="cat-score">81%</div></div>
+      <div class="cat-row" onclick="location.href='../personal-plan/'"><div class="cat-icon">🏃</div><div><div class="cat-title">Training & Regeneration</div><div class="cat-sub">ACTN3, COMT und Belastungsmarker · Fokus: 30-Tage-Plan, Recovery, Schlaf</div><div class="bar-stack"><span class="bar-training" style="width:58%"></span><span class="bar-stress" style="width:24%"></span><span class="bar-sleep" style="width:12%"></span></div></div><div class="cat-score">68%</div></div>
+      <div class="cat-row" onclick="location.href='../interpretation/regeneration/'"><div class="cat-icon">🧠</div><div><div class="cat-title">Stress & Mental Resilience</div><div class="cat-sub">COMT, DRD2-nahe Demo-Marker · Fokus: Reizverarbeitung und Erholung</div><div class="bar-stack"><span class="bar-stress" style="width:62%"></span><span class="bar-training" style="width:18%"></span></div></div><div class="cat-score">72%</div></div>
+      <div class="cat-row" onclick="location.href='../snp-deep-dive/'"><div class="cat-icon">✨</div><div><div class="cat-title">Skin & Longevity</div><div class="cat-sub">COL1A1 und antioxidative Marker · Fokus: Haut, Kollagen, oxidativer Stress</div><div class="bar-stack"><span class="bar-aging" style="width:52%"></span><span class="bar-nutrient" style="width:22%"></span></div></div><div class="cat-score">59%</div></div>
+    </div>
+    <div class="cat-card"><h3>Wie easyGene Kategorien liest</h3><p>Kategorien sind keine Diagnosen, sondern verständliche Bündel aus Varianten, Genen und evidenzgewichteten Lifestyle-Hinweisen.</p><div class="evidence-list">
+      <div class="evidence-item"><span class="badge blue">1</span><div><b>Genetische Marker bündeln</b><p>Einzelne SNPs werden nicht isoliert gezeigt, sondern in funktionelle Module einsortiert.</p></div></div>
+      <div class="evidence-item"><span class="badge amber">2</span><div><b>Relevanz gewichten</b><p>Hoch, mittel und niedrig relevante Marker beeinflussen die Darstellung unterschiedlich stark.</p></div></div>
+      <div class="evidence-item"><span class="badge mint">3</span><div><b>In Routinen übersetzen</b><p>Das Ergebnis mündet in Empfehlungen, Kalenderlogik und optionale Modulvertiefung.</p></div></div>
+      <div class="evidence-item"><span class="badge gray">Demo</span><div><b>Prototyp-Hinweis</b><p>Die Werte dienen der Produktdemo und werden später durch echte Auswertungslogik ersetzt.</p></div></div>
+    </div><div class="geno-link-row"><a class="btn primary small" href="../personal-overview/">Zur persönlichen Übersicht</a><a class="btn ghost small" href="../analytics/">Grafiken ansehen</a></div></div>
+  </div>
+</div>
+
+<div class="three-col lower"><div class="card info-card"><div class="icon-bubble mint">💡</div><div><h3>Was bedeuten diese Informationen?</h3><p>Diese Übersicht zeigt genetische Varianten, die Stoffwechsel, Training oder Wohlbefinden beeinflussen können.</p><a class="btn ghost small" href="../interpretation/">Zur Erklärung →</a></div></div><div class="card"><h3>Relevanzstufen</h3><p><span class="dot red"></span> Hoch — starker wissenschaftlicher Zusammenhang</p><p><span class="dot amber"></span> Mittel — moderater Zusammenhang</p><p><span class="dot gray"></span> Niedrig — indirekter Zusammenhang</p></div><div class="card data-quality"><h3>Datenqualität</h3><p>Ihre genetischen Daten sind vollständig und zuverlässig auswertbar.</p><ul><li>100% vollständig</li><li>Hohe Abdeckung: 94%</li><li>Mittlere Tiefe: ~28,4×</li></ul></div></div>
 </section>
 <div class="disclaimer">Nicht-diagnostisch. Diese Informationen dienen dem besseren Verständnis von Lifestyle- und Wellness-Tendenzen.</div>
 </main>
 </div>
 </div>
-<div aria-live="polite" class="demo-toast" id="demo-toast"></div></body></html>
+<div aria-live="polite" class="demo-toast" id="demo-toast"></div>
+<script>
+(function(){
+  const tabs=[...document.querySelectorAll('[data-geno-tab]')];
+  const views={variants:document.getElementById('geno-view-variants'),genes:document.getElementById('geno-view-genes'),categories:document.getElementById('geno-view-categories')};
+  function activate(key){
+    if(!views[key]) key='variants';
+    tabs.forEach(t=>{const on=t.dataset.genoTab===key;t.classList.toggle('active',on);t.setAttribute('aria-selected',on?'true':'false');});
+    Object.entries(views).forEach(([k,v])=>v.classList.toggle('active',k===key));
+    if(location.hash.replace('#','')!==key){history.replaceState(null,'','#'+key);}
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>activate(t.dataset.genoTab)));
+  const initial=(location.hash||'#variants').replace('#','');
+  activate(initial);
+})();
+</script>
+</body></html>
