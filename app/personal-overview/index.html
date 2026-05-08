@@ -1,5 +1,25 @@
 <!DOCTYPE html>
-<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Persönliche Übersicht</title><link href="../../styles.css" rel="stylesheet"/><link href="../../demo-interactions.css" rel="stylesheet"/><script defer="True" src="../../demo-interactions.js"></script><meta content="noindex,nofollow" name="robots"/></head>
+
+<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Persönliche Übersicht</title><link href="../../styles.css" rel="stylesheet"/><link href="../../demo-interactions.css" rel="stylesheet"/><script defer="True" src="../../demo-interactions.js"></script><meta content="noindex,nofollow" name="robots"/><style>
+/* v1.0 – expandable module overview */
+.personal-overview-content{overflow:auto;padding-right:6px;scrollbar-width:thin;}
+.personal-overview-content::-webkit-scrollbar{width:8px}.personal-overview-content::-webkit-scrollbar-thumb{background:#CBD5E1;border-radius:999px}
+.personal-overview-page .module-overview-card{padding-bottom:18px;}
+.personal-overview-page .module-grid.seven.expandable-modules{grid-template-columns:repeat(7,minmax(0,1fr));align-items:start;}
+.module-overview-card .detail-toggle{border:none;background:transparent;color:#008C7A;font-weight:900;cursor:pointer;font-size:14px;padding:0;}
+.module-accordion{border:1px solid var(--border);border-radius:16px;background:#fff;overflow:hidden;transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;}
+.module-accordion:hover{transform:translateY(-2px);border-color:#B7E4DC;box-shadow:0 16px 38px rgba(7,22,74,.10)}
+.module-accordion summary{list-style:none;cursor:pointer;min-height:150px;border:0;border-radius:0;box-shadow:none;}
+.module-accordion summary::-webkit-details-marker{display:none;}
+.module-accordion summary:after{content:"Details öffnen";display:block;margin-top:12px;color:#008C7A;font-size:11px;font-weight:900;letter-spacing:.02em;}
+.module-accordion[open] summary:after{content:"Details schließen";}
+.module-accordion[open]{grid-column:span 2;box-shadow:0 18px 42px rgba(7,22,74,.11);}
+.module-detail{margin:0 12px 12px;border-radius:14px;padding:14px;border:1px solid rgba(0,0,0,.04);}
+.module-detail h4{margin:0 0 8px;color:#07164A;font-size:15px;letter-spacing:-.02em}.module-detail p{font-size:12.5px;line-height:1.42;margin:0 0 10px;color:#334155}.module-detail .detail-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}.mini-metric{background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.8);border-radius:12px;padding:9px}.mini-metric span{display:block;font-size:10.5px;text-transform:uppercase;color:#64748B;font-weight:900;letter-spacing:.04em}.mini-metric b{display:block;margin-top:4px;color:#07164A;font-size:17px}.module-detail .chip-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.module-detail .chip-row span{background:#fff;border:1px solid rgba(15,23,42,.08);border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900;color:#334155}.module-detail .module-cta{display:inline-flex;align-items:center;justify-content:center;height:32px;margin-top:10px;padding:0 12px;border-radius:9px;background:#fff;color:#008C7A;text-decoration:none;font-weight:900;font-size:12px;border:1px solid rgba(0,140,122,.22)}
+.detail-teal{background:linear-gradient(135deg,#E6F8F4,#FFFFFF)}.detail-blue{background:linear-gradient(135deg,#EAF1FF,#FFFFFF)}.detail-amber{background:linear-gradient(135deg,#FFF4DC,#FFFFFF)}.detail-violet{background:linear-gradient(135deg,#F0EAFF,#FFFFFF)}.detail-red{background:linear-gradient(135deg,#FCE8EE,#FFFFFF)}
+.module-visual-row{display:flex;gap:8px;margin:8px 0 10px}.module-visual{width:38px;height:38px;border-radius:14px;background:#fff;display:grid;place-items:center;font-size:18px;border:1px solid rgba(15,23,42,.07)}
+@media (max-width:1400px){.personal-overview-page .module-grid.seven.expandable-modules{grid-template-columns:repeat(4,1fr)}.module-accordion[open]{grid-column:span 2}}
+</style></head>
 <body>
 <div class="frame">
 <div class="browser">
@@ -11,67 +31,152 @@
 <div class="app">
 <aside class="sidebar">
 <div class="logo-wrap"><img alt="easyGene" src="../../assets/easygene_logo_quer.png"/></div>
-<div class="nav"><a aria-label="Start / Dashboard" class="nav-item" href="../dashboard/" title="Start / Dashboard"><span class="nav-ico">⌂</span><span>Start / Dashboard</span></a><a aria-label="Module / Core" class="nav-item" href="../modules-core/" title="Module / Core"><span class="nav-ico">▦</span><span>Module / Core</span></a><a aria-label="Persönliche Übersicht" class="nav-item active" href="./" title="Persönliche Übersicht"><span class="nav-ico">♡</span><span>Persönliche Übersicht</span></a><a aria-label="Genotyp-Übersicht" class="nav-item" href="../genotypes/" title="Genotyp-Übersicht"><span class="nav-ico">⛓</span><span>Genotyp-Übersicht</span></a><a aria-label="Interpretation" class="nav-item" href="../interpretation/" title="Interpretation"><span class="nav-ico">◌</span><span>Interpretation</span></a><a aria-label="Empfehlungen" class="nav-item" href="../recommendations/" title="Empfehlungen"><span class="nav-ico">↗</span><span>Empfehlungen</span></a><a aria-label="Plan & Kalender" class="nav-item" href="../personal-plan/" title="Plan & Kalender"><span class="nav-ico">🗓</span><span>Plan & Kalender</span></a><a aria-label="Biologischer Hintergrund" class="nav-item" href="../biology/" title="Biologischer Hintergrund"><span class="nav-ico">▤</span><span>Biologischer Hintergrund</span></a><a aria-label="SNP Deep Dive" class="nav-item" href="../snp-deep-dive/" title="SNP Deep Dive"><span class="nav-ico">⌕</span><span>SNP Deep Dive</span></a><a aria-label="Grafiken / Analytics" class="nav-item" href="../analytics/" title="Grafiken / Analytics"><span class="nav-ico">▥</span><span>Grafiken / Analytics</span></a><a aria-label="Datenschutz / Export" class="nav-item" href="../privacy-export/" title="Datenschutz / Export"><span class="nav-ico">▣</span><span>Datenschutz / Export</span></a></div>
+<div class="nav"><a aria-label="Start / Dashboard" class="nav-item" href="../dashboard/" title="Start / Dashboard"><span class="nav-ico">⌂</span><span>Start / Dashboard</span></a><a aria-label="Module / Core" class="nav-item" href="../modules-core/" title="Module / Core"><span class="nav-ico">▦</span><span>Module / Core</span></a><a aria-label="Persönliche Übersicht" class="nav-item active" href="./" title="Persönliche Übersicht"><span class="nav-ico">♡</span><span>Persönliche Übersicht</span></a><a aria-label="Genotyp-Übersicht" class="nav-item" href="../genotypes/" title="Genotyp-Übersicht"><span class="nav-ico">⛓</span><span>Genotyp-Übersicht</span></a><a aria-label="Interpretation" class="nav-item" href="../interpretation/" title="Interpretation"><span class="nav-ico">◌</span><span>Interpretation</span></a><a aria-label="Empfehlungen" class="nav-item" href="../recommendations/" title="Empfehlungen"><span class="nav-ico">↗</span><span>Empfehlungen</span></a><a aria-label="Plan &amp; Kalender" class="nav-item" href="../personal-plan/" title="Plan &amp; Kalender"><span class="nav-ico">🗓</span><span>Plan &amp; Kalender</span></a><a aria-label="Biologischer Hintergrund" class="nav-item" href="../biology/" title="Biologischer Hintergrund"><span class="nav-ico">▤</span><span>Biologischer Hintergrund</span></a><a aria-label="SNP Deep Dive" class="nav-item" href="../snp-deep-dive/" title="SNP Deep Dive"><span class="nav-ico">⌕</span><span>SNP Deep Dive</span></a><a aria-label="Grafiken / Analytics" class="nav-item" href="../analytics/" title="Grafiken / Analytics"><span class="nav-ico">▥</span><span>Grafiken / Analytics</span></a><a aria-label="Datenschutz / Export" class="nav-item" href="../privacy-export/" title="Datenschutz / Export"><span class="nav-ico">▣</span><span>Datenschutz / Export</span></a></div>
 <div class="consent-card"><div class="gift">🎁</div><b>Ihre Datenfreigabe lohnt sich!</b><p>Teilen Sie Daten freiwillig für Forschung und erhalten Sie Vorteile.</p><a class="demo-small-link" data-demo-link="true" href="../privacy-export/">Mehr erfahren →</a></div>
 <div class="user-card"><div class="avatar">MM</div><div><b>Max Mustermann</b><p>Premium Mitglied · seit Feb 2024</p></div></div>
 </aside>
-<main class="main"><div class="demo-badge">Demo-Prototyp</div>
+<main class="main personal-overview-page"><div class="demo-badge">Demo-Prototyp</div>
 <header class="page-head">
 <div><h1>Persönliche Übersicht</h1><p>Gesamtscores, Modulstatus und wichtigste genetische Lifestyle-Tendenzen.</p></div>
 <div class="actions"><button class="btn ghost" data-demo-action="Vergleich anzeigen">Vergleich anzeigen</button><button class="btn primary" data-demo-action="Report exportieren">Report exportieren</button></div>
 </header>
-<section class="content">
+<section class="content personal-overview-content">
 <div class="two-col compact-right">
 <div class="card summary-hero"><div><h2>Ihr persönliches Profil</h2><p>Die Gesamtsicht bündelt Modul-Scores, genetische Hinweise und robuste Lifestyle-Findings.</p><div class="quad-stats"><span><b>12</b> Stärken</span><span><b>4</b> Potenziale</span><span><b>18</b> neutral</span><span><b>128</b> SNPs</span></div></div><div class="big-score"><span>78</span><em>/100</em><b>überdurchschnittlich</b></div></div>
 <div class="card"><h3>Top-Erkenntnisse</h3><ol class="ranked"><li>Gute Detox-Kapazität</li><li>Effizienter Koffein-Stoffwechsel</li><li>Schlafqualität priorisieren</li><li>Omega-3-Verwertung beachten</li></ol></div>
 </div>
-<div class="card"><div class="card-head"><h3>Modulübersicht</h3><a>Details anzeigen →</a></div><div class="module-grid seven">
-<div class="module-card">
+<div class="card module-overview-card"><div class="card-head"><h3>Modulübersicht</h3><button class="detail-toggle" id="toggle-module-details" type="button">Alle Details öffnen →</button></div><div class="module-grid seven expandable-modules">
+<details class="module-accordion">
+<summary class="module-card">
 <div class="module-head"><div class="icon-bubble small teal">🍃</div><span class="badge soft">Stärke</span></div>
 <div class="module-title">Detox</div>
 <div class="score-row"><div class="progress"><span style="width:87%"></span></div><b>87</b></div>
 <div class="muted">Starke Entgiftungskapazität</div>
+</summary>
+<div class="module-detail detail-teal">
+<h4>Detox: Kurzprofil</h4>
+<div class="module-visual-row"><div class="module-visual">🥦</div><div class="module-visual">🛡️</div><div class="module-visual">💧</div></div>
+<p>Genetische Tendenz zu solider antioxidativer Abwehr und guter Phase-II-Unterstützung.</p>
+<div class="detail-row"><div class="mini-metric"><span>Evidenz</span><b>hoch</b></div><div class="mini-metric"><span>Fokus</span><b>Glutathion</b></div></div>
+<div class="chip-row"><span>GSTM1/NQO1</span><span>SOD2</span><span>Kreuzblütler</span><span>Proteinbasis</span></div>
+<a class="module-cta" href="../interpretation/detox/">Vertiefen →</a>
 </div>
-<div class="module-card">
+</details>
+<details class="module-accordion">
+<summary class="module-card">
 <div class="module-head"><div class="icon-bubble small blue">🏋</div><span class="badge soft">Potenzial</span></div>
 <div class="module-title">Training</div>
 <div class="score-row"><div class="progress"><span style="width:68%"></span></div><b>68</b></div>
 <div class="muted">Kraft + Ausdauer kombinieren</div>
+</summary>
+<div class="module-detail detail-blue">
+<h4>Training: Kurzprofil</h4>
+<div class="module-visual-row"><div class="module-visual">🏃</div><div class="module-visual">💪</div><div class="module-visual">🧘</div></div>
+<p>Das Profil spricht für kombiniertes Training mit geplanter Regeneration statt reinem Volumenaufbau.</p>
+<div class="detail-row"><div class="mini-metric"><span>Trainingsfit</span><b>68/100</b></div><div class="mini-metric"><span>Regeneration</span><b>64/100</b></div></div>
+<div class="chip-row"><span>2× Kraft</span><span>2× Zone 2</span><span>Mobility</span><span>Ruhetage</span></div>
+<a class="module-cta" href="../personal-plan/">Vertiefen →</a>
 </div>
-<div class="module-card">
+</details>
+<details class="module-accordion">
+<summary class="module-card">
 <div class="module-head"><div class="icon-bubble small amber">🍴</div><span class="badge soft">solide</span></div>
 <div class="module-title">Ernährung</div>
 <div class="score-row"><div class="progress"><span style="width:72%"></span></div><b>72</b></div>
 <div class="muted">Mikronährstoffe beachten</div>
+</summary>
+<div class="module-detail detail-amber">
+<h4>Ernährung: Kurzprofil</h4>
+<div class="module-visual-row"><div class="module-visual">🥗</div><div class="module-visual">🐟</div><div class="module-visual">🧬</div></div>
+<p>Solides Grundprofil; besonders sinnvoll sind Folat-/B12-Achse, Omega-3 und regelmäßige Mahlzeiten.</p>
+<div class="detail-row"><div class="mini-metric"><span>Score</span><b>72/100</b></div><div class="mini-metric"><span>Priorität</span><b>mittel</b></div></div>
+<div class="chip-row"><span>Folat/B12</span><span>Omega-3</span><span>Protein</span><span>Ballaststoffe</span></div>
+<a class="module-cta" href="../recommendations/">Vertiefen →</a>
 </div>
-<div class="module-card">
+</details>
+<details class="module-accordion">
+<summary class="module-card">
 <div class="module-head"><div class="icon-bubble small violet">🌙</div><span class="badge soft">Hinweis</span></div>
 <div class="module-title">Circadianer Typ</div>
 <div class="score-row"><div class="progress"><span style="width:74%"></span></div><b>74</b></div>
 <div class="muted">leicht später Chronotyp</div>
+</summary>
+<div class="module-detail detail-violet">
+<h4>Circadianer Typ: Kurzprofil</h4>
+<div class="module-visual-row"><div class="module-visual">🌅</div><div class="module-visual">🌙</div><div class="module-visual">⏱️</div></div>
+<p>Leicht später Chronotyp: Morgenlicht und feste Schlafenszeiten können den Alltag stabilisieren.</p>
+<div class="detail-row"><div class="mini-metric"><span>Chronotyp</span><b>später</b></div><div class="mini-metric"><span>Routine</span><b>wichtig</b></div></div>
+<div class="chip-row"><span>Morgenlicht</span><span>Koffein-Timing</span><span>Abendroutine</span><span>Schlafdruck</span></div>
+<a class="module-cta" href="../personal-plan/">Vertiefen →</a>
 </div>
-<div class="module-card">
+</details>
+<details class="module-accordion">
+<summary class="module-card">
 <div class="module-head"><div class="icon-bubble small teal">⏳</div><span class="badge soft">Stärke</span></div>
 <div class="module-title">Longevity</div>
 <div class="score-row"><div class="progress"><span style="width:75%"></span></div><b>75</b></div>
 <div class="muted">Zellschutz stabil</div>
+</summary>
+<div class="module-detail detail-teal">
+<h4>Longevity: Kurzprofil</h4>
+<div class="module-visual-row"><div class="module-visual">🫀</div><div class="module-visual">🧪</div><div class="module-visual">🌿</div></div>
+<p>Die Longevity-Achse wirkt insgesamt stabil; Fokus bleibt Entzündungskontrolle und metabolische Balance.</p>
+<div class="detail-row"><div class="mini-metric"><span>Zellschutz</span><b>75/100</b></div><div class="mini-metric"><span>Risiko</span><b>niedrig</b></div></div>
+<div class="chip-row"><span>Entzündung</span><span>Glykation</span><span>Bewegung</span><span>Schlaf</span></div>
+<a class="module-cta" href="../analytics/">Vertiefen →</a>
 </div>
-<div class="module-card">
+</details>
+<details class="module-accordion">
+<summary class="module-card">
 <div class="module-head"><div class="icon-bubble small red">✨</div><span class="badge soft">Potenzial</span></div>
 <div class="module-title">Anti-Aging</div>
 <div class="score-row"><div class="progress"><span style="width:66%"></span></div><b>66</b></div>
 <div class="muted">Kollagenprofil normal</div>
+</summary>
+<div class="module-detail detail-red">
+<h4>Anti-Aging: Kurzprofil</h4>
+<div class="module-visual-row"><div class="module-visual">✨</div><div class="module-visual">🧴</div><div class="module-visual">🍊</div></div>
+<p>Normales Kollagen-/Hautprofil mit Potenzial über UV-Schutz, Vitamin-C-Zufuhr und oxidativen Stress.</p>
+<div class="detail-row"><div class="mini-metric"><span>Hautscore</span><b>66/100</b></div><div class="mini-metric"><span>Hebel</span><b>Lifestyle</b></div></div>
+<div class="chip-row"><span>Kollagen</span><span>Vitamin C</span><span>UV-Schutz</span><span>Antioxidantien</span></div>
+<a class="module-cta" href="../recommendations/">Vertiefen →</a>
 </div>
-<div class="module-card">
+</details>
+<details class="module-accordion">
+<summary class="module-card">
 <div class="module-head"><div class="icon-bubble small violet">🧠</div><span class="badge soft">Hinweis</span></div>
 <div class="module-title">Mental Resilience</div>
 <div class="score-row"><div class="progress"><span style="width:71%"></span></div><b>71</b></div>
 <div class="muted">Stresssensitivität beachten</div>
-</div></div></div>
+</summary>
+<div class="module-detail detail-violet">
+<h4>Mental Resilience: Kurzprofil</h4>
+<div class="module-visual-row"><div class="module-visual">🧠</div><div class="module-visual">🌬️</div><div class="module-visual">☕</div></div>
+<p>Gute Basis, aber stress- und schlafabhängige Schwankungen sollten im Alltag mitgedacht werden.</p>
+<div class="detail-row"><div class="mini-metric"><span>Resilienz</span><b>71/100</b></div><div class="mini-metric"><span>Fokus</span><b>Recovery</b></div></div>
+<div class="chip-row"><span>Atemroutine</span><span>Schlaf</span><span>Koffein</span><span>Regeneration</span></div>
+<a class="module-cta" href="../interpretation/regeneration/">Vertiefen →</a>
+</div>
+</details></div></div>
 <div class="three-col"><div class="card"><h3>Ampel-Logik</h3><p><span class="badge teal">Stärke</span> <span class="badge amber">Hinweis</span> <span class="badge red">Potenzial</span></p><p>Die Bewertung zeigt Tendenzen, keine Diagnose.</p></div><div class="card"><h3>Robuste Findings</h3><div class="large-number">12</div><p>Varianten mit hoher oder moderater Evidenz.</p></div><div class="card"><h3>Betroffene Bereiche</h3><p>Detox, Training, Schlaf, Ernährung, Mental Resilience und Haut.</p></div></div>
 </section>
 <div class="disclaimer">Nicht-diagnostisch. Diese Informationen dienen dem besseren Verständnis von Lifestyle- und Wellness-Tendenzen.</div>
 </main>
 </div>
 </div>
-<div aria-live="polite" class="demo-toast" id="demo-toast"></div></body></html>
+<div aria-live="polite" class="demo-toast" id="demo-toast"></div><script>
+(function(){
+  const toggle = document.getElementById('toggle-module-details');
+  const items = Array.from(document.querySelectorAll('.module-accordion'));
+  if(!toggle || !items.length) return;
+  toggle.addEventListener('click', function(){
+    const anyClosed = items.some(d => !d.open);
+    items.forEach(d => d.open = anyClosed);
+    toggle.textContent = anyClosed ? 'Alle Details schließen ↑' : 'Alle Details öffnen →';
+  });
+  items.forEach(d => d.addEventListener('toggle', function(){
+    const allOpen = items.every(x => x.open);
+    toggle.textContent = allOpen ? 'Alle Details schließen ↑' : 'Alle Details öffnen →';
+  }));
+})();
+</script></body></html>
