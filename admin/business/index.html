@@ -9,6 +9,9 @@
 .scenario-btn.active{background:#07164A;color:#FFFFFF;box-shadow:0 8px 20px rgba(7,22,74,.18)}
 .scenario-hint{font-size:12px;color:#64748B;font-weight:800;margin-left:8px;align-self:center}
 .metric-tile.warning{background:#FFF9EF;border-color:#F7D399}.metric-tile.warning b{color:#B95E00}.metric-tile.good{background:#F4FBF9;border-color:#CFEDE6}.metric-tile.good b{color:#008C7A}
+.business-nav-link{ text-decoration:none; color:inherit; }
+.business-nav-link:hover{background:#F3F8FA;transform:translateX(2px);transition:.18s ease;color:#07164A}
+.tabs.investor-tabs a{height:54px;display:flex;align-items:center;position:relative;text-decoration:none;color:#44516D;font-weight:800}.tabs.investor-tabs a:hover{color:#008C7A}.tabs.investor-tabs a.active{color:#008C7A}.tabs.investor-tabs a.active:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;border-radius:3px;background:#008C7A}
 </style></head>
 <body>
 <div class="frame">
@@ -21,7 +24,7 @@
 <div class="app">
 <aside class="sidebar">
 <div class="logo-wrap"><img alt="easyGene" src="../../assets/easygene_logo_quer.png"/></div>
-<div class="nav"><div class="nav-item active"><span class="nav-ico">▦</span><span>Investor Cockpit</span></div><div class="nav-item"><span class="nav-ico">▥</span><span>MC Snapshot</span></div><div class="nav-item"><span class="nav-ico">€</span><span>Umsatz &amp; Daten</span></div><div class="nav-item"><span class="nav-ico">↗</span><span>Partner Pipeline</span></div><div class="nav-item"><span class="nav-ico">▣</span><span>Use of Funds</span></div><div class="nav-item"><span class="nav-ico">🛡</span><span>Due Diligence</span></div></div>
+<div class="nav"><a class="nav-item active business-nav-link" href="./"><span class="nav-ico">▦</span><span>Investor Cockpit</span></a><a class="nav-item business-nav-link" href="mc-snapshot/"><span class="nav-ico">▥</span><span>MC Snapshot</span></a><a class="nav-item business-nav-link" href="umsatz-daten/"><span class="nav-ico">€</span><span>Umsatz &amp; Daten</span></a><div class="nav-item" data-demo-action="Partner Pipeline"><span class="nav-ico">↗</span><span>Partner Pipeline</span></div><div class="nav-item" data-demo-action="Use of Funds"><span class="nav-ico">▣</span><span>Use of Funds</span></div><div class="nav-item" data-demo-action="Due Diligence"><span class="nav-ico">🛡</span><span>Due Diligence</span></div></div>
 <div class="consent-card"><div class="gift">📊</div><b>Monte-Carlo v0.3</b><p>C5 Hold oder 2,5 Mio. € Serious Build + Bridge als umschaltbare Investor-Demo.</p><a class="demo-small-link" data-demo-link="true" href="../../app/dashboard/">Kunden-Demo öffnen →</a></div>
 <div class="user-card"><div class="avatar">EG</div><div><b>easyGene GmbH</b><p>Investor Preview · Mai 2026</p></div></div>
 </aside>
@@ -42,7 +45,7 @@
 <div class="kpi-card" id="kpi-risk-card"><div class="icon-bubble mint" id="kpi-risk-icon">🛡</div><div><div class="kpi-value" id="kpi-risk-value">1,2%</div><div class="kpi-label" id="kpi-risk-label">Bankruptcy Risk</div><div class="kpi-sub teal" id="kpi-risk-sub">Bridge P90: 0,00 Mio. €</div></div></div>
 <div class="kpi-card"><div class="icon-bubble amber">↗</div><div><div class="kpi-value" id="kpi-multiple">3,5×</div><div class="kpi-label">Investor Multiple</div><span class="kpi-footnote">Q20 · Median</span></div></div>
 </div>
-<div class="tabs investor-tabs"><span class="active" data-demo-action="Demo-Tab: MC Snapshot">MC Snapshot</span><span data-demo-action="Demo-Tab: Umsatzlogik">Umsatzlogik</span><span data-demo-action="Demo-Tab: Datenhebel">Datenhebel</span><span data-demo-action="Demo-Tab: Partner">Partner</span><span data-demo-action="Demo-Tab: Validierung">Validierung</span></div>
+<div class="tabs investor-tabs"><a class="active" href="mc-snapshot/">MC Snapshot</a><a href="umsatz-daten/">Umsatz &amp; Daten</a><span data-demo-action="Demo-Tab: Partner">Partner</span><span data-demo-action="Demo-Tab: Validierung">Validierung</span></div>
 <div class="investor-grid">
 <div class="card slim"><div class="card-head"><div><h3 id="scenario-card-title">C5 · Category Build · Hold</h3><p id="scenario-card-copy">Fokussierte Investor-Lesart auf den robusten Plattformcase ohne harte frühe Rückzahlung aus der operativen Gesellschaft.</p></div><span class="mc-pill">MC v0.3 · Seed 20260508</span></div>
 <div class="metric-list">
