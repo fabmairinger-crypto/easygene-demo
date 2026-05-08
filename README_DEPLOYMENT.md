@@ -41,3 +41,11 @@ Nicht die ZIP direkt in Google Sites hochladen. Besser:
 ## Status
 
 Dies ist bewusst keine echte App. Alle Daten sind Dummy-/Mockup-Daten. UI-Elemente haben Hover-States und Demo-Toasts; Hauptnavigation und einige Buttons sind echt verlinkt.
+
+
+## v0.2 Ergänzung
+
+- Root-Index professionalisiert: nur noch primäre Einstiege „Für Kunden“ und „Für Investoren“.
+- Neuer Screen `/app/personal-plan/` für 30-Tage-Trainingsplan, Regenerations-/Nutrient-Kalender und geplante Wearable-/Kalender-Integrationen.
+- Dashboard und Empfehlungen verlinken nun auf den Plan-/Kalender-Screen.
+- Koffein- und Analytics-Screens bleiben als Deep-Dive-Seiten erhalten, stehen aber nicht mehr prominent auf der Startübersicht.
