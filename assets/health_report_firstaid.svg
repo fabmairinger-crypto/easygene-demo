@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+  <defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#f8fbff"/><stop offset="1" stop-color="#e8f4ff"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0d2245" flood-opacity=".12"/></filter></defs>
+  <rect width="640" height="480" rx="34" fill="url(#bg)"/>
+  <g filter="url(#s)">
+    <rect x="125" y="88" width="390" height="300" rx="24" fill="#fff" stroke="#d9e6f4" stroke-width="4"/>
+    <rect x="170" y="130" width="300" height="58" rx="16" fill="#eef7ff"/>
+    <rect x="185" y="146" width="70" height="28" rx="8" fill="#0d63c7" opacity=".85"/>
+    <rect x="275" y="152" width="170" height="16" rx="8" fill="#b7d7f4"/>
+    <rect x="170" y="220" width="300" height="24" rx="12" fill="#e9f1f8"/>
+    <rect x="170" y="263" width="240" height="24" rx="12" fill="#e9f1f8"/>
+    <rect x="170" y="306" width="280" height="24" rx="12" fill="#e9f1f8"/>
+    <circle cx="500" cy="105" r="54" fill="#19a46a"/>
+    <path d="M500 75v60M470 105h60" stroke="#fff" stroke-width="18" stroke-linecap="round"/>
+  </g>
+  <text x="320" y="430" text-anchor="middle" font-family="Inter,Arial" font-size="24" font-weight="700" fill="#0d2245">Gesundheitsreport</text>
+</svg>

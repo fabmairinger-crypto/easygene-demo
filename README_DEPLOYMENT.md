@@ -149,3 +149,20 @@ Neue Routen:
 
 ## v1.8 Fokus-Auswahl und Gesundheit & Alltag
 Neu: `app/fokus/`, `app/dashboard-health/`. Der Kundenportal-Einstieg kann auf `app/fokus/` zeigen. Lifestyle & Wohlbefinden nutzt `app/dashboard-coach/`; Gesundheit & Alltag nutzt `app/dashboard-health/`; Erweiterte Analyse & Details nutzt `app/dashboard/`.
+
+
+## v1.9 – Gesundheit & Alltag Ausbau
+
+Neu bzw. geändert:
+
+```text
+app/dashboard-health/index.html
+app/dashboard-health/module/index.html
+app/dashboard-health/empfehlungen/index.html
+app/dashboard-health/wissenschaft/index.html
+assets/health_hero_doctor.svg
+assets/health_report_firstaid.svg
+```
+
+Die Gesundheitsansicht enthält jetzt eigene Module, Empfehlungen und Wissenschaft-/Methodikseiten.
+Der Hero verwendet ein medizinisch-vertrauensbildendes Visual; die Report-Karte nutzt eine Erste-Hilfe-/Kreuz-Optik.
