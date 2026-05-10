@@ -1,62 +1,149 @@
 <!DOCTYPE html>
-<html lang="de"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Dashboard · Alltag / Coach</title><link href="../../styles.css" rel="stylesheet"/><link href="../../demo-interactions.css" rel="stylesheet"/><script defer="True" src="../../demo-interactions.js"></script><meta content="noindex,nofollow" name="robots"/><style>
-:root{--warm-bg:#FAF8F3;--warm-side:#F2F1EC;--warm-card:#FFFFFF;--warm-line:#E7E1D7;--warm-text:#162036;--warm-muted:#6F746F;--forest:#21584A;--sage:#DCEBE4;--cream:#FFF8EA;--rose:#F7E8E0;--sky:#E9F1F8;--gold:#D79B2B;}
-body{background:#EDEBE5}.app.coach-app{background:var(--warm-bg)}.coach-app .sidebar{background:linear-gradient(180deg,#F4F3EE 0%,#ECEAE3 100%);border-right:1px solid #E2DED5}.coach-app .main{background:linear-gradient(180deg,#FAF8F3 0%,#F7F4ED 100%);padding:28px 30px 18px}.coach-app .nav-item{color:#445045}.coach-app .nav-item.active{background:#FFFFFF;color:#21584A;box-shadow:inset 0 0 0 1px rgba(33,88,74,.12),0 10px 20px rgba(40,50,40,.05)}.coach-app .consent-card{background:#fff;border-color:#E1DED5;box-shadow:0 10px 24px rgba(42,46,40,.06)}.coach-app .user-card{border-color:#E1DED5;box-shadow:0 10px 24px rgba(42,46,40,.06)}.coach-shell{height:884px;overflow:hidden;display:grid;grid-template-columns:1fr 360px;gap:22px}.coach-left{display:flex;flex-direction:column;gap:18px;min-width:0}.coach-right{display:flex;flex-direction:column;gap:18px}.coach-hero{min-height:245px;border:1px solid var(--warm-line);border-radius:30px;background:radial-gradient(circle at 75% 18%,rgba(255,255,255,.70),transparent 18%),linear-gradient(135deg,#FFFFFF 0%,#FFF4DE 46%,#E7F3ED 100%);box-shadow:0 18px 48px rgba(49,54,44,.08);display:grid;grid-template-columns:1.2fr .75fr;gap:22px;overflow:hidden;position:relative}.coach-hero-copy{padding:31px 34px}.coach-kicker{display:inline-flex;align-items:center;gap:8px;height:30px;border-radius:999px;background:#fff;border:1px solid #E7E1D7;color:#21584A;padding:0 12px;font-size:12px;font-weight:950;letter-spacing:.02em}.coach-hero h1{font-family:Georgia,'Times New Roman',serif;font-size:44px;line-height:1.03;letter-spacing:-.045em;color:#172137;margin:18px 0 12px}.coach-hero p{font-size:16px;color:#4E5B54;line-height:1.55;max-width:650px;margin:0 0 20px}.coach-actions{display:flex;gap:12px;align-items:center}.coach-btn{height:44px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;padding:0 18px;text-decoration:none;font-weight:950;border:1px solid #DAD5C9;color:#1B2A36;background:#fff}.coach-btn.primary{background:#21584A;color:#fff;border-color:#21584A;box-shadow:0 12px 24px rgba(33,88,74,.22)}.coach-visual{position:relative;padding:26px 26px 20px;display:flex;flex-direction:column;justify-content:flex-end}.photo-card{height:178px;border-radius:28px;background:linear-gradient(135deg,#F2DACD,#FCF5E6 44%,#DCEBE4);border:1px solid rgba(255,255,255,.74);box-shadow:0 20px 45px rgba(77,82,67,.12);position:relative;overflow:hidden}.photo-card:before{content:'🌿';position:absolute;left:26px;top:24px;font-size:62px;filter:drop-shadow(0 10px 20px rgba(0,0,0,.08))}.photo-card:after{content:'';position:absolute;right:-38px;bottom:-54px;width:170px;height:170px;border-radius:50%;background:rgba(255,255,255,.58)}.hero-mini{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}.hero-mini div{background:rgba(255,255,255,.78);border:1px solid rgba(231,225,215,.9);border-radius:18px;padding:12px}.hero-mini b{display:block;color:#172137;font-size:20px;letter-spacing:-.04em}.hero-mini span{font-size:11px;color:#68736D;font-weight:900;text-transform:uppercase}.view-toggle{display:inline-flex;align-items:center;gap:4px;height:44px;border:1px solid #E2DED5;background:#fff;border-radius:999px;padding:4px;box-shadow:0 8px 20px rgba(40,50,40,.06)}.view-toggle a{height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:0 13px;text-decoration:none;color:#6F746F;font-weight:950;font-size:12.5px;white-space:nowrap}.view-toggle a.active{background:#21584A;color:#fff;box-shadow:0 8px 18px rgba(33,88,74,.17)}.view-toggle a:not(.active):hover{background:#F7F4ED;color:#172137}.coach-dot,.analysis-dot{width:7px;height:7px;border-radius:50%;margin-right:6px}.coach-dot{background:#A7D0BF}.analysis-dot{background:#7C5CE6}.coach-section{border:1px solid var(--warm-line);border-radius:24px;background:#fff;box-shadow:0 14px 34px rgba(49,54,44,.06);padding:22px}.coach-section h2,.coach-section h3{margin:0;color:#172137;letter-spacing:-.035em}.coach-section h2{font-size:24px}.coach-section h3{font-size:19px}.coach-section p{color:#58625C;line-height:1.48;margin:8px 0 0}.priority-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:15px}.priority-card{display:block;text-decoration:none;color:inherit;border-radius:22px;border:1px solid #E8E0D3;padding:17px;background:linear-gradient(180deg,#fff,#FFF9EF);min-height:174px;transition:.18s}.priority-card:nth-child(2){background:linear-gradient(180deg,#fff,#F1F7F3)}.priority-card:nth-child(3){background:linear-gradient(180deg,#fff,#F1F4FA)}.priority-card:hover{transform:translateY(-3px);box-shadow:0 18px 34px rgba(49,54,44,.10);border-color:#D8CBB9}.priority-icon{width:46px;height:46px;border-radius:17px;background:#fff;display:grid;place-items:center;font-size:24px;margin-bottom:13px;border:1px solid #EAE2D5}.priority-card b{display:block;color:#172137;font-size:17px;margin-bottom:7px}.priority-card span{display:inline-flex;margin-top:12px;background:#fff;border:1px solid #E7E1D7;border-radius:999px;padding:7px 10px;color:#21584A;font-size:11px;font-weight:950}.routine-card{border:1px solid #E3DDD1;border-radius:24px;background:#fff;box-shadow:0 14px 34px rgba(49,54,44,.06);padding:22px}.week-list{display:flex;flex-direction:column;gap:12px;margin-top:16px}.week-item{display:grid;grid-template-columns:42px 1fr auto;gap:12px;align-items:center;border:1px solid #E7E1D7;border-radius:18px;background:#FBFAF6;padding:12px}.week-item i{width:42px;height:42px;border-radius:16px;display:grid;place-items:center;background:#DCEBE4;font-style:normal}.week-item b{display:block;color:#172137;margin-bottom:3px}.week-item small{color:#6C766F;font-weight:800}.week-item em{font-style:normal;background:#fff;border:1px solid #E7E1D7;border-radius:999px;padding:7px 9px;color:#21584A;font-size:11px;font-weight:950}.module-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}.module-chip-card{display:block;text-decoration:none;color:inherit;border:1px solid #E7E1D7;border-radius:20px;background:#FBFAF6;padding:15px;transition:.18s}.module-chip-card:hover{transform:translateY(-2px);background:#fff;box-shadow:0 14px 26px rgba(49,54,44,.08)}.module-chip-card strong{display:flex;align-items:center;gap:8px;color:#172137;margin-bottom:8px}.tiny-meter{height:7px;border-radius:999px;background:#E7E1D7;overflow:hidden;margin-top:11px}.tiny-meter span{display:block;height:100%;border-radius:999px;background:#21584A}.coach-report{background:#172137;color:#fff;border-radius:24px;padding:22px;box-shadow:0 18px 40px rgba(23,33,55,.14)}.coach-report h3{color:#fff;margin:0 0 8px}.coach-report p{color:rgba(255,255,255,.74);line-height:1.45;margin:0 0 18px}.coach-report .coach-btn{background:#fff;color:#172137;border-color:#fff}.trust-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}.trust-row div{border:1px solid #E7E1D7;border-radius:18px;background:#FBFAF6;padding:13px;text-align:center}.trust-row b{display:block;color:#172137;font-size:20px}.trust-row span{font-size:11px;color:#6F746F;text-transform:uppercase;font-weight:950}.coach-note{font-size:12px;color:#68736D;line-height:1.45}.coach-app .disclaimer{background:#fff;border-color:#E7E1D7;color:#68736D}@media(max-width:1500px){.coach-shell{grid-template-columns:1fr 330px}.coach-hero h1{font-size:39px}.priority-grid{grid-template-columns:1fr}.module-strip{grid-template-columns:1fr 1fr}}
-</style></head>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>easyGene · Alltag / Coach</title>
+  <style>
+    :root{
+      --ink:#111827; --navy:#142033; --muted:#66746e; --line:#ebe6dd;
+      --bg:#fbfaf7; --side:#f6f7f4; --side-active:#eef4ed; --green:#0f5b4d;
+      --green2:#2e8b6d; --soft-green:#eaf4ef; --orange:#eb8747; --orange-soft:#fff2e8;
+      --gold:#d8a441; --gold-soft:#fff7e5; --blue:#2478b9; --blue-soft:#eef6ff;
+      --purple:#7a62d0; --purple-soft:#f2efff; --rose:#d95779; --rose-soft:#fff0f5;
+      --shadow:0 18px 42px rgba(26,33,28,.07);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}.page{min-height:100vh;display:grid;grid-template-columns:226px minmax(780px,1fr) 328px;gap:0;background:var(--bg)}
+
+    /* sidebar */
+    .sidebar{background:linear-gradient(180deg,#fafaf8 0%,#f4f5f1 100%);border-right:1px solid #e7e4dc;min-height:100vh;padding:26px 20px 22px;display:flex;flex-direction:column;gap:22px}
+    .logo img{width:142px;height:auto;display:block}.menu{display:flex;flex-direction:column;gap:8px;margin-top:22px}.nav-item{height:48px;display:flex;align-items:center;gap:13px;border-radius:14px;padding:0 14px;color:#253243;font-size:15px;font-weight:760;transition:.18s ease}
+    .nav-item:hover{background:#fff;box-shadow:0 12px 28px rgba(19,31,28,.05);transform:translateX(1px)}.nav-item.active{background:var(--side-active);color:var(--green)}.ico{width:22px;height:22px;display:grid;place-items:center;font-size:20px}.subnav{margin:-3px 0 18px 50px;display:flex;flex-direction:column;gap:2px}.subnav a{height:33px;display:flex;align-items:center;gap:10px;border-radius:11px;padding:0 10px;color:#596761;font-size:13px;font-weight:720}.subnav a:before{content:"";width:6px;height:6px;border-radius:50%;background:#c7ccc5}.subnav a.active{background:#eff3eb;color:#173c34}.subnav a.active:before{background:#e8792e}.left-note{margin-top:auto;border:1px solid #ebe6dd;background:#fff;border-radius:18px;padding:18px;box-shadow:0 12px 30px rgba(31,35,30,.05)}.left-note .leaf{width:40px;height:40px;border-radius:14px;background:var(--soft-green);display:grid;place-items:center;margin-bottom:13px}.left-note b{font-size:12.5px;color:var(--green);display:block}.left-note p{font-size:12px;line-height:1.45;color:#5f6b65;margin:7px 0 0}
+
+    /* main */
+    .main{padding:30px 28px 28px;min-width:0}.topbar{height:42px;display:flex;justify-content:flex-end;align-items:center;gap:18px;margin-bottom:16px}.round-icon{width:34px;height:34px;border-radius:50%;border:1px solid #ece7df;background:#fff;display:grid;place-items:center;color:#1d2838;font-weight:800}.avatar{background:#f1f1ee;border:0}.hello{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:800;color:#1d2838}.view-toggle{margin-right:auto;display:inline-flex;align-items:center;border:1px solid #e6e0d6;background:#fff;border-radius:999px;padding:4px;box-shadow:0 12px 28px rgba(25,35,28,.06)}.view-toggle a{height:34px;padding:0 13px;border-radius:999px;display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:900;color:#68756d;white-space:nowrap}.view-toggle a.active{background:var(--green);color:#fff}.dot{width:7px;height:7px;border-radius:50%;background:#9ccdbb}.dot.analysis{background:#7c5ce6}
+    .hero{position:relative;border-radius:26px;min-height:330px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 53%;margin-bottom:24px}.hero-copy{padding:46px 34px 34px 46px;position:relative;z-index:2}.breadcrumb{display:flex;gap:9px;align-items:center;color:#66746e;font-size:13px;font-weight:800;margin-bottom:26px}.breadcrumb b{color:#e27c36}.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:46px;line-height:1.03;letter-spacing:-.045em;margin:0 0 18px;color:#142033}.hero p{font-size:16.5px;line-height:1.58;color:#3e4b50;margin:0 0 22px;max-width:480px}.status-row{display:flex;gap:18px;align-items:center;margin-bottom:24px;flex-wrap:wrap}.status{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:850;color:#365d51}.status .badge-ico{width:25px;height:25px;border-radius:50%;background:#e4f4ea;display:grid;place-items:center}.status.prio{color:#5d4d31}.status.prio .badge-ico{background:#fff3e2;color:#e27c36}.primary-btn{height:50px;border-radius:12px;background:var(--green);color:#fff;display:inline-flex;align-items:center;gap:18px;padding:0 24px;font-size:15px;font-weight:900;box-shadow:0 14px 26px rgba(15,91,77,.22);transition:.18s}.primary-btn:hover{transform:translateY(-2px);box-shadow:0 18px 34px rgba(15,91,77,.28)}.hero-image{position:relative;min-height:330px;background:url('../../assets/coach_hero_overview.jpg') center/cover no-repeat}.hero-image:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.50) 22%,rgba(255,255,255,.03) 58%)}
+    section{margin-bottom:24px}.section-title{font-family:Georgia,"Times New Roman",serif;color:#142033;font-size:24px;line-height:1.1;margin:0 0 14px;letter-spacing:-.025em}.priority-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.priority-card{min-height:190px;border:1px solid #efe4d8;border-radius:18px;background:#fff7f0;box-shadow:0 12px 28px rgba(55,41,27,.05);padding:22px;display:flex;flex-direction:column;transition:.18s}.priority-card:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(55,41,27,.09)}.priority-card:nth-child(2){background:#fffaf0;border-color:#eee3cc}.priority-card:nth-child(3){background:#f4f8fc;border-color:#e2eaf3}.mod-icon{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:#ffe7d6;color:#e56d26;font-size:26px;margin-bottom:13px}.priority-card:nth-child(2) .mod-icon{background:#fff1cf;color:#d99723}.priority-card:nth-child(3) .mod-icon{background:#e4f2ff;color:#2478b9}.prio-label{display:inline-flex;align-items:center;width:max-content;height:24px;border-radius:999px;background:#fff4e8;color:#e27c36;padding:0 10px;font-size:11px;font-weight:900;margin-bottom:6px}.priority-card h3,.module-card h3{font-family:Georgia,"Times New Roman",serif;letter-spacing:-.02em;font-size:19px;margin:0 0 8px;color:#142033}.priority-card p,.module-card p{font-size:13.4px;line-height:1.45;color:#4e5d58;margin:0}.more{margin-top:auto;padding-top:16px;color:#e27c36;font-size:13px;font-weight:900}.priority-card:nth-child(2) .more{color:#b37a19}.priority-card:nth-child(3) .more{color:#2478b9}
+    .module-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.module-card{border:1px solid #eee8df;border-radius:18px;background:#fff7f2;padding:20px;display:grid;grid-template-columns:58px 1fr;gap:16px;align-items:center;min-height:116px;transition:.18s}.module-card:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(42,48,39,.07)}.module-card:nth-child(2){background:#f4f9ff}.module-card:nth-child(3){background:#f8f4ff}.module-card:nth-child(4){background:#fff9ec}.module-card:nth-child(5){background:#f2faf5}.module-card:nth-child(6){background:#fff0f5}.module-card .open{grid-column:2;height:30px;display:inline-flex;align-items:center;justify-content:center;max-width:126px;border-radius:10px;background:#fff0e7;color:#d96822;font-size:12px;font-weight:900}.module-card:nth-child(2) .open{background:#edf6ff;color:#2478b9}.module-card:nth-child(3) .open{background:#f1ecff;color:#7152bd}.module-card:nth-child(4) .open{background:#fff2d6;color:#a86d13}.module-card:nth-child(5) .open{background:#e5f4eb;color:#0f5b4d}.module-card:nth-child(6) .open{background:#ffe5ee;color:#bc3e66}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.trust-card{border:1px solid #ede7df;background:#fff;border-radius:17px;padding:18px;min-height:112px}.trust-card .mini-ico{width:40px;height:40px;border-radius:14px;display:grid;place-items:center;margin-bottom:10px;background:#e8f4ed;color:var(--green);font-size:22px}.trust-card:nth-child(2) .mini-ico{background:#eaf4ff;color:#2478b9}.trust-card:nth-child(3) .mini-ico{background:#e9f6ef;color:#0f5b4d}.trust-card:nth-child(4) .mini-ico{background:#f2ecff;color:#765ac6}.trust-card b{font-size:13.5px;color:#263743}.trust-card p{font-size:11.4px;line-height:1.42;color:#68756d;margin:7px 0 0}
+
+    /* right */
+    .right{padding:88px 26px 28px 18px;min-height:100vh}.right-card{border:1px solid #eae4dc;background:#fff;border-radius:22px;box-shadow:0 14px 32px rgba(31,37,31,.055);padding:22px;margin-bottom:22px}.right-card h2{font-family:Georgia,"Times New Roman",serif;font-size:20px;letter-spacing:-.02em;margin:0 0 18px;color:#142033}.task-list{display:flex;flex-direction:column;gap:14px}.task{display:grid;grid-template-columns:54px 1fr 20px;gap:14px;align-items:center;border:1px solid #ece6df;border-radius:17px;padding:14px;background:#fff;transition:.18s}.task:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(31,37,31,.06)}.task .ticon{width:54px;height:54px;border-radius:17px;display:grid;place-items:center;background:#e5f4eb;color:#0f5b4d;font-size:26px}.task:nth-child(2) .ticon{background:#eaf4ff;color:#2478b9}.task:nth-child(3) .ticon{background:#f2ecff;color:#765ac6}.task b{display:block;color:#1b2738;font-size:14.5px;margin-bottom:5px}.task span{display:block;color:#596861;font-size:12.3px;line-height:1.35}.chev{color:#8a918b;font-weight:900}.all-tasks{height:44px;display:flex;align-items:center;justify-content:center;gap:10px;color:var(--green);font-weight:900;font-size:13px;border-top:1px solid #eee8df;margin:18px -22px -8px;padding-top:16px}.report-img{height:176px;border-radius:17px;background:url('../../assets/coach_report_overview.jpg') center/cover no-repeat;margin:12px 0 17px;border:1px solid #eee8df}.right-card p{font-size:14px;line-height:1.45;color:#5d6a64;margin:0 0 15px}.right-card .primary-btn{width:100%;justify-content:center}.updated{border-top:1px solid #eee8df;margin:18px -22px -8px;padding:14px 22px 0;color:#8a918b;font-size:12px}.demo-note{font-size:11.5px;color:#8a918b;line-height:1.4;margin-top:10px}
+    @media(max-width:1280px){.page{grid-template-columns:210px 1fr}.right{display:none}.hero{grid-template-columns:1fr 45%}.priority-grid,.module-grid{grid-template-columns:1fr 1fr}.trust-grid{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
 <body>
-<div class="frame">
-<div class="browser">
-<div class="traffic"><span class="r"></span><span class="y"></span><span class="g"></span></div>
-<div class="arrows">‹  ›</div>
-<div class="url">▣  demo.easygene.de/app/dashboard-coach</div>
-<div class="top-icons"><span>🔔</span><span>◉</span></div>
+<div class="page">
+  <aside class="sidebar">
+    <a class="logo" href="../dashboard-coach/" aria-label="easyGene"><img src="../../assets/easygene_logo_quer.png" alt="easyGene"></a>
+    <nav class="menu" aria-label="Kundenportal">
+      <a class="nav-item active" href="../dashboard-coach/"><span class="ico">⌂</span><span>Übersicht</span></a>
+      <a class="nav-item" href="../modules-core/"><span class="ico">▦</span><span>Meine Module</span></a>
+      <div class="subnav">
+        <a class="active" href="../interpretation/">Ernährung</a>
+        <a href="../interpretation/detox/">Detox</a>
+        <a href="../personal-overview/">Training</a>
+        <a href="../interpretation/regeneration/">Schlaf & Chronotyp</a>
+        <a href="../recommendations/">Mentale Resilienz</a>
+        <a href="../modules-core/">Haut & Skincare</a>
+      </div>
+      <a class="nav-item" href="../recommendations/"><span class="ico">✧</span><span>Empfehlungen</span></a>
+      <a class="nav-item" href="../personal-plan/"><span class="ico">▣</span><span>Plan</span></a>
+      <a class="nav-item" href="../privacy-export/"><span class="ico">▤</span><span>Report</span></a>
+      <a class="nav-item" href="../genotypes/"><span class="ico">♙</span><span>Details</span></a>
+    </nav>
+    <div class="left-note"><div class="leaf">🌿</div><b>Wissen. Handeln. Wohlfühlen.</b><p>Deine Gene. Dein Plan. Dein bestes Ich.</p></div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div class="view-toggle" aria-label="Dashboard-Ansicht umschalten">
+        <a class="active" href="../dashboard-coach/"><span class="dot"></span>Alltag / Coach</a>
+        <a href="../dashboard/"><span class="dot analysis"></span>Analyse / Optimierung</a>
+      </div>
+      <a class="round-icon" href="../personal-plan/" title="Benachrichtigungen">♧</a>
+      <a class="round-icon" href="../privacy-export/" title="Hilfe">?</a>
+      <div class="round-icon avatar">MM</div>
+      <a class="hello" href="../privacy-export/">Hallo, Maria <span>⌄</span></a>
+    </div>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="breadcrumb"><span>Module</span><span>/</span><b>Übersicht</b></div>
+        <h1>Dein easyGene Überblick <span style="color:#7fbf91">🌿</span></h1>
+        <div class="status-row">
+          <span class="status"><span class="badge-ico">✓</span>Analyse abgeschlossen</span>
+          <span class="status prio"><span class="badge-ico">★</span>7 Module aktiv</span>
+        </div>
+        <p>Deine persönlichen genetischen Insights sind da. Starte jetzt mit den Empfehlungen, die am besten zu dir und deinem Lifestyle passen.</p>
+        <a class="primary-btn" href="../recommendations/">Empfehlungen starten <span>→</span></a>
+      </div>
+      <div class="hero-image" aria-hidden="true"></div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Für dich jetzt am wichtigsten</h2>
+      <div class="priority-grid">
+        <a class="priority-card" href="../interpretation/">
+          <div class="mod-icon">🥗</div><span class="prio-label">1 Priorität</span>
+          <h3>Ernährung & Entzündungsbalance</h3><p>Deine Ernährung kann entzündungsbezogene Alltagsfaktoren positiv beeinflussen und dein Wohlbefinden stärken.</p><span class="more">Empfehlungen ansehen →</span>
+        </a>
+        <a class="priority-card" href="../interpretation/regeneration/">
+          <div class="mod-icon">🌙</div><span class="prio-label">2 Priorität</span>
+          <h3>Schlaf & Regeneration</h3><p>Guter Schlaf unterstützt deine Regeneration, deinen Stoffwechsel und deine mentale Balance.</p><span class="more">Empfehlungen ansehen →</span>
+        </a>
+        <a class="priority-card" href="../personal-plan/">
+          <div class="mod-icon">🏋️</div><span class="prio-label">3 Priorität</span>
+          <h3>Training</h3><p>Regelmäßige Bewegung stärkt deinen Körper und bringt dich nachhaltig in Balance.</p><span class="more">Empfehlungen ansehen →</span>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Deine gebuchten Module</h2>
+      <div class="module-grid">
+        <a class="module-card" href="../interpretation/"><div class="mod-icon">🥗</div><div><h3>Ernährung</h3><p>Koffein, Entzündung, Nährstoffe und mehr.</p></div><span class="open">Öffnen →</span></a>
+        <a class="module-card" href="../personal-overview/"><div class="mod-icon">🏋️</div><div><h3>Training</h3><p>Regeneration, Belastung und Leistungsfähigkeit.</p></div><span class="open">Öffnen →</span></a>
+        <a class="module-card" href="../modules-core/"><div class="mod-icon">✨</div><div><h3>Haut & Skincare</h3><p>UV, Kollagen, Antioxidantien und Hautschutz.</p></div><span class="open">Öffnen →</span></a>
+        <a class="module-card" href="../interpretation/regeneration/"><div class="mod-icon">🌙</div><div><h3>Schlaf & Chronotyp</h3><p>Schlaf-Typ, Rhythmus und optimale Erholung.</p></div><span class="open">Öffnen →</span></a>
+        <a class="module-card" href="../interpretation/detox/"><div class="mod-icon">🌿</div><div><h3>Detox</h3><p>Leber, Entgiftung und Umweltfaktoren.</p></div><span class="open">Öffnen →</span></a>
+        <a class="module-card" href="../recommendations/"><div class="mod-icon">🧠</div><div><h3>Mentale Resilienz</h3><p>Stress, Stimmung und mentale Balance.</p></div><span class="open">Öffnen →</span></a>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Warum du den Empfehlungen vertrauen kannst</h2>
+      <div class="trust-grid">
+        <a class="trust-card" href="../biology/"><div class="mini-ico">🧬</div><b>Wissenschaftlich fundiert</b><p>Auf Basis aktueller SNPs und wissenschaftlicher Literatur.</p></a>
+        <a class="trust-card" href="../genotypes/"><div class="mini-ico">▦</div><b>128 relevante SNPs</b><p>Wir analysieren genetische Varianten, die wirklich Einfluss haben.</p></a>
+        <a class="trust-card" href="../snp-deep-dive/"><div class="mini-ico">🛡</div><b>Transparente Methodik</b><p>Empfehlungen basieren auf validierten Methoden und klaren Kriterien.</p></a>
+        <a class="trust-card" href="../privacy-export/"><div class="mini-ico">🔒</div><b>Datenschutz</b><p>Deine Daten sind sicher und werden ausschließlich für dich genutzt.</p></a>
+      </div>
+    </section>
+  </main>
+
+  <aside class="right">
+    <div class="right-card">
+      <h2>▣ Wichtig für dich diese Woche</h2>
+      <div class="task-list">
+        <a class="task" href="../personal-plan/"><div class="ticon">🐟</div><div><b>Omega-3 im Fokus</b><span>Bau 2–3 Portionen fettreichen Fisch oder pflanzliche Quellen ein.</span></div><span class="chev">›</span></a>
+        <a class="task" href="../personal-plan/"><div class="ticon">💧</div><div><b>Hydration nicht vergessen</b><span>Trink täglich mind. 1,5–2 Liter Wasser für bessere Zellfunktion.</span></div><span class="chev">›</span></a>
+        <a class="task" href="../personal-plan/"><div class="ticon">🛏</div><div><b>Schlafroutine stärken</b><span>Geh 30 Minuten früher ins Bett für bessere Regeneration.</span></div><span class="chev">›</span></a>
+      </div>
+      <a class="all-tasks" href="../personal-plan/">Alle Aufgaben anzeigen →</a>
+    </div>
+    <div class="right-card">
+      <div class="report-img" aria-hidden="true"></div>
+      <h2>Dein easyGene Report</h2>
+      <p>Dein vollständiger Lifestyle Report mit allen Ergebnissen und Empfehlungen.</p>
+      <a class="primary-btn" href="../privacy-export/">Report öffnen →</a>
+      <div class="updated">Letztes Update: 24.04.2026</div>
+    </div>
+    <div class="demo-note">Demo-Prototyp. Nicht-diagnostisch; die Darstellung dient der Produktvision und Nutzerführung.</div>
+  </aside>
 </div>
-<div class="app coach-app">
-<aside class="sidebar">
-<div class="logo-wrap"><img alt="easyGene" src="../../assets/easygene_logo_quer.png"/></div>
-<div class="nav"><a aria-label="Start / Dashboard" class="nav-item active" href="./" title="Start / Dashboard"><span class="nav-ico">⌂</span><span>Start / Dashboard</span></a><a aria-label="Module / Core" class="nav-item" href="../modules-core/" title="Module / Core"><span class="nav-ico">▦</span><span>Module / Core</span></a><a aria-label="Persönliche Übersicht" class="nav-item" href="../personal-overview/" title="Persönliche Übersicht"><span class="nav-ico">♡</span><span>Persönliche Übersicht</span></a><a aria-label="Genotyp-Übersicht" class="nav-item" href="../genotypes/" title="Genotyp-Übersicht"><span class="nav-ico">⛓</span><span>Genotyp-Übersicht</span></a><a aria-label="Interpretation" class="nav-item" href="../interpretation/" title="Interpretation"><span class="nav-ico">◌</span><span>Interpretation</span></a><a aria-label="Empfehlungen" class="nav-item" href="../recommendations/" title="Empfehlungen"><span class="nav-ico">↗</span><span>Empfehlungen</span></a><a aria-label="Plan & Kalender" class="nav-item" href="../personal-plan/" title="Plan & Kalender"><span class="nav-ico">🗓</span><span>Plan & Kalender</span></a><a aria-label="Biologischer Hintergrund" class="nav-item" href="../biology/" title="Biologischer Hintergrund"><span class="nav-ico">▤</span><span>Biologischer Hintergrund</span></a><a aria-label="SNP Deep Dive" class="nav-item" href="../snp-deep-dive/" title="SNP Deep Dive"><span class="nav-ico">⌕</span><span>SNP Deep Dive</span></a><a aria-label="Grafiken / Analytics" class="nav-item" href="../analytics/" title="Grafiken / Analytics"><span class="nav-ico">▥</span><span>Grafiken / Analytics</span></a><a aria-label="Datenschutz / Export" class="nav-item" href="../privacy-export/" title="Datenschutz / Export"><span class="nav-ico">▣</span><span>Datenschutz / Export</span></a></div>
-<div class="consent-card"><div class="gift">🎁</div><b>Ihre Datenfreigabe lohnt sich!</b><p>Teilen Sie Daten freiwillig für Forschung und erhalten Sie Vorteile.</p><a class="demo-small-link" data-demo-link="true" href="../privacy-export/">Mehr erfahren →</a></div>
-<div class="user-card"><div class="avatar">MM</div><div><b>Max Mustermann</b><p>Premium Mitglied · seit Feb 2024</p></div></div>
-</aside>
-<main class="main"><div class="demo-badge">Demo-Prototyp</div>
-<header class="page-head">
-<div><h1>Dashboard</h1><p>Alltag / Coach · persönliche Prioritäten und nächste Schritte.</p></div>
-<div class="actions"><div class="view-toggle" aria-label="Dashboard-Ansicht umschalten"><a class="active" href="./" data-demo-link="true"><span class="coach-dot"></span>Alltag / Coach</a><a href="../dashboard/" data-demo-link="true"><span class="analysis-dot"></span>Analyse / Optimierung</a></div><a class="btn ghost" data-demo-link="true" href="../cart/">🛒</a><a class="btn primary" data-demo-link="true" href="../personal-plan/">Plan öffnen</a></div>
-</header>
-<section class="content">
-<div class="coach-shell">
-<div class="coach-left">
-<div class="coach-hero">
-<div class="coach-hero-copy"><span class="coach-kicker">✓ Analyse abgeschlossen · 7 Module aktiv</span><h1>Dein easyGene Überblick</h1><p>Wir übersetzen dein genetisches Profil in konkrete Alltagsprioritäten – ruhig, verständlich und mit wissenschaftlicher Detailtiefe, sobald du sie brauchst.</p><div class="coach-actions"><a class="coach-btn primary" data-demo-link="true" href="../recommendations/">Empfehlungen starten</a><a class="coach-btn" data-demo-link="true" href="../personal-overview/">Meine Module ansehen</a></div></div>
-<div class="coach-visual"><div class="photo-card" aria-hidden="true"></div><div class="hero-mini"><div><span>Heute wichtig</span><b>Recovery</b></div><div><span>Fokus</span><b>Schlaf</b></div></div></div>
-</div>
-<div class="coach-section"><div class="card-head"><div><span class="eyebrow">Prioritäten</span><h2>Für dich jetzt am wichtigsten</h2></div><a data-demo-link="true" href="../recommendations/">Alle Empfehlungen →</a></div>
-<div class="priority-grid">
-<a class="priority-card" data-demo-link="true" href="../interpretation/detox/"><div class="priority-icon">🥗</div><b>Ernährung & Entzündungsbalance</b><p>Mehr Omega-3-/Polyphenol-Fokus, weniger hochverarbeitete Belastungstage.</p><span>Top-Empfehlung</span></a>
-<a class="priority-card" data-demo-link="true" href="../interpretation/regeneration/"><div class="priority-icon">🌙</div><b>Schlaf & Regeneration</b><p>Feste Schlafanker und zwei aktive Recovery-Blöcke pro Woche priorisieren.</p><span>Diese Woche</span></a>
-<a class="priority-card" data-demo-link="true" href="../personal-plan/"><div class="priority-icon">🏋️</div><b>Training dosieren</b><p>Hohe Reizantwort, aber klar geplante Pausen verbessern die Routine.</p><span>Plan öffnen</span></a>
-</div>
-</div>
-<div class="coach-section"><div class="card-head"><div><span class="eyebrow">Module</span><h2>Deine Themenwelten</h2></div><a data-demo-link="true" href="../modules-core/">Module verwalten →</a></div>
-<div class="module-strip">
-<a class="module-chip-card" data-demo-link="true" href="../personal-overview/"><strong>🥗 Ernährung</strong><span class="muted">78 / 100 · aktiv</span><div class="tiny-meter"><span style="width:78%"></span></div></a>
-<a class="module-chip-card" data-demo-link="true" href="../interpretation/regeneration/"><strong>🌙 Regeneration</strong><span class="muted">74 / 100 · Fokus</span><div class="tiny-meter"><span style="width:74%"></span></div></a>
-<a class="module-chip-card" data-demo-link="true" href="../personal-overview/"><strong>🏋️ Training</strong><span class="muted">68 / 100 · aktiv</span><div class="tiny-meter"><span style="width:68%"></span></div></a>
-<a class="module-chip-card" data-demo-link="true" href="../interpretation/koffein/"><strong>☕ Koffein</strong><span class="muted">schneller Metabolizer</span><div class="tiny-meter"><span style="width:82%"></span></div></a>
-</div>
-</div>
-<div class="coach-section"><div class="card-head"><div><span class="eyebrow">Vertrauen</span><h2>Warum du den Empfehlungen vertrauen kannst</h2></div><a data-demo-link="true" href="../genotypes/">Details ansehen →</a></div><p>Die Oberfläche beginnt bewusst mit Alltag und Prioritäten. Gene, SNPs, Evidenz und Methodik bleiben darunter vollständig nachvollziehbar.</p><div class="trust-row"><div><b>128</b><span>SNPs</span></div><div><b>7</b><span>Module</span></div><div><b>2026</b><span>Report</span></div><div><b>DSGVO</b><span>Kontrolle</span></div></div></div>
-</div>
-<div class="coach-right">
-<div class="routine-card"><span class="eyebrow">Diese Woche</span><h3>Wichtig für dich</h3><p>Aus deinen Modulen abgeleitete Routinen – bereit für den 30-Tage-Plan.</p><div class="week-list"><div class="week-item"><i>🥗</i><div><b>Omega-3 einplanen</b><small>2–3 Mahlzeiten als Wochenanker</small></div><em>Nutrient</em></div><div class="week-item"><i>💧</i><div><b>Hydration prüfen</b><small>vor intensiven Trainingstagen</small></div><em>Routine</em></div><div class="week-item"><i>🌙</i><div><b>Schlafanker setzen</b><small>gleichbleibendes Zeitfenster</small></div><em>Recovery</em></div><div class="week-item"><i>🏃</i><div><b>Zone-2-Einheit</b><small>moderater Reiz statt Overload</small></div><em>Training</em></div></div><a class="coach-btn primary" style="width:100%;margin-top:16px" data-demo-link="true" href="../personal-plan/">In Kalender übernehmen</a></div>
-<div class="coach-report"><h3>Dein easyGene Report</h3><p>PDF, Modulübersichten und Detaildaten bleiben jederzeit exportierbar.</p><a class="coach-btn" data-demo-link="true" href="../privacy-export/">Report & Export öffnen</a></div>
-<div class="routine-card"><h3>Ansicht wechseln</h3><p>Für Biohacking, Scores, SNPs und Detailtabellen kannst du jederzeit in die Analyse-/Optimierungsansicht wechseln.</p><a class="coach-btn" data-demo-link="true" href="../dashboard/">Analyse / Optimierung öffnen</a></div>
-<div class="coach-note">Nicht-diagnostischer Demo-Prototyp. Die Darstellung zeigt, wie Lifestyle-Tendenzen, Module und Empfehlungen später nutzerfreundlich priorisiert werden können.</div>
-</div>
-</div>
-</section>
-<div class="disclaimer">Nicht-diagnostisch. Diese Informationen dienen dem besseren Verständnis von Lifestyle- und Wellness-Tendenzen.</div>
-</main>
-</div>
-</div>
-<div aria-live="polite" class="demo-toast" id="demo-toast"></div></body></html>
+</body>
+</html>
