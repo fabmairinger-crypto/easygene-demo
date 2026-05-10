@@ -201,3 +201,9 @@ Neue Performance-Routen:
 - `/app/dashboard-performance/module/`
 - `/app/dashboard-performance/empfehlungen/`
 - `/app/dashboard-performance/wissenschaft/`
+
+
+## v2.2 – Lifestyle Navigation & Kalender-Polish
+- Lifestyle-/Coach-Navigation um „Wissenschaft“ ergänzt.
+- Fokus-spezifische Links in den Coach-Modulen korrigiert: Empfehlungen und Wissenschaft bleiben im jeweiligen Modul.
+- Plan & Kalender erhält eine professionellere Kalenderansicht mit Monats-/Wochenraster, Routinen und Legende.
