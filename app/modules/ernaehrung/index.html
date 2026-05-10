@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>easyGene · Ernährung & Entzündungsbalance</title>
+  <style>
+    :root{
+      --ink:#111827; --navy:#142033; --muted:#66746e; --line:#ebe6dd;
+      --bg:#fbfaf7; --side:#f6f7f4; --side-active:#eef4ed; --green:#0f5b4d;
+      --soft-green:#eaf4ef; --orange:#e9782f; --orange-soft:#fff2e8;
+      --gold:#d8a441; --gold-soft:#fff7e5; --blue:#2f6e9f; --blue-soft:#eef6ff;
+      --shadow:0 18px 42px rgba(26,33,28,.07);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}.page{min-height:100vh;display:grid;grid-template-columns:226px minmax(780px,1fr) 328px;background:var(--bg)}
+    .sidebar{background:linear-gradient(180deg,#fafaf8 0%,#f4f5f1 100%);border-right:1px solid #e7e4dc;min-height:100vh;padding:26px 20px 22px;display:flex;flex-direction:column;gap:22px}
+    .logo img{width:142px;height:auto;display:block}.menu{display:flex;flex-direction:column;gap:8px;margin-top:22px}.nav-item{height:48px;display:flex;align-items:center;gap:13px;border-radius:14px;padding:0 14px;color:#253243;font-size:15px;font-weight:760;transition:.18s}.nav-item:hover{background:#fff;box-shadow:0 12px 28px rgba(19,31,28,.05);transform:translateX(1px)}.nav-item.active{background:var(--side-active);color:var(--green)}.ico{width:22px;height:22px;display:grid;place-items:center;font-size:20px}.subnav{margin:-3px 0 18px 50px;display:flex;flex-direction:column;gap:2px}.subnav a{height:33px;display:flex;align-items:center;gap:10px;border-radius:11px;padding:0 10px;color:#596761;font-size:13px;font-weight:720}.subnav a:before{content:"";width:6px;height:6px;border-radius:50%;background:#c7ccc5}.subnav a.active{background:#eff3eb;color:#173c34}.subnav a.active:before{background:#e8792e}.left-note{margin-top:auto;border:1px solid #ebe6dd;background:#fff;border-radius:18px;padding:18px;box-shadow:0 12px 30px rgba(31,35,30,.05)}.left-note .leaf{width:40px;height:40px;border-radius:14px;background:var(--soft-green);display:grid;place-items:center;margin-bottom:13px}.left-note b{font-size:12.5px;color:var(--green);display:block}.left-note p{font-size:12px;line-height:1.45;color:#5f6b65;margin:7px 0 0}
+    .main{padding:30px 28px 28px;min-width:0}.topbar{height:42px;display:flex;justify-content:flex-end;align-items:center;gap:18px;margin-bottom:16px}.round-icon{width:34px;height:34px;border-radius:50%;border:1px solid #ece7df;background:#fff;display:grid;place-items:center;color:#1d2838;font-weight:800}.avatar{background:#f1f1ee;border:0}.hello{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:800;color:#1d2838}.view-toggle{margin-right:auto;display:inline-flex;align-items:center;border:1px solid #e6e0d6;background:#fff;border-radius:999px;padding:4px;box-shadow:0 12px 28px rgba(25,35,28,.06)}.view-toggle a{height:34px;padding:0 13px;border-radius:999px;display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:900;color:#68756d;white-space:nowrap}.view-toggle a.active{background:var(--green);color:#fff}.dot{width:7px;height:7px;border-radius:50%;background:#9ccdbb}.dot.analysis{background:#7c5ce6}
+    .hero{position:relative;border-radius:22px;min-height:318px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 48%;margin-bottom:22px}.hero-copy{padding:28px 34px 30px 34px;position:relative;z-index:2}.breadcrumb{display:flex;gap:9px;align-items:center;color:#66746e;font-size:13px;font-weight:800;margin-bottom:22px}.breadcrumb b{color:#e27c36}.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:42px;line-height:1.04;letter-spacing:-.045em;margin:0 0 17px;color:#142033}.hero p{font-size:15.2px;line-height:1.58;color:#3e4b50;margin:0 0 18px;max-width:525px}.status-row{display:flex;gap:18px;align-items:center;margin-bottom:22px;flex-wrap:wrap}.status{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:850;color:#365d51}.status .badge-ico{width:25px;height:25px;border-radius:50%;background:#e4f4ea;display:grid;place-items:center}.status.prio{color:#5d4d31}.status.prio .badge-ico{background:#fff3e2;color:#e27c36}.primary-btn{height:50px;border-radius:12px;background:var(--green);color:#fff;display:inline-flex;align-items:center;gap:18px;padding:0 24px;font-size:15px;font-weight:900;box-shadow:0 14px 26px rgba(15,91,77,.22);transition:.18s}.primary-btn:hover{transform:translateY(-2px);box-shadow:0 18px 34px rgba(15,91,77,.28)}.hero-image{position:relative;min-height:318px;background:url('../../../assets/coach_hero_nutrition.jpg') center/cover no-repeat}.hero-image:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.86) 0%,rgba(255,255,255,.18) 35%,rgba(255,255,255,.02) 70%)}
+    section{margin-bottom:22px}.section-title{font-family:Georgia,"Times New Roman",serif;color:#142033;font-size:23px;line-height:1.1;margin:0 0 13px;letter-spacing:-.025em}.tip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.tip-card{border:1px solid #f1e2d6;border-radius:18px;background:#fff8f2;box-shadow:0 12px 28px rgba(55,41,27,.05);padding:18px;display:grid;grid-template-rows:auto 1fr auto auto;min-height:218px;transition:.18s}.tip-card:hover,.science-card:hover,.process-card:hover{transform:translateY(-3px);box-shadow:0 18px 38px rgba(55,41,27,.08)}.tip-card .icon{width:54px;height:54px;border-radius:50%;background:#ffe7d5;color:#e56d26;display:grid;place-items:center;font-size:25px;margin-bottom:9px}.tip-card h3{font-family:Georgia,"Times New Roman",serif;font-size:18px;line-height:1.25;margin:0 0 9px;color:#142033}.tip-card p{font-size:13.2px;line-height:1.46;color:#475650;margin:0}.checkline{border-top:1px solid #efdfd2;margin:14px 0 10px;padding-top:10px;color:#53615b;font-size:12.3px;font-weight:800}.checkline:before{content:"○";margin-right:8px;color:#99a29b}.soft-btn{height:34px;border-radius:10px;background:#fff0e3;color:#473a31;display:flex;align-items:center;justify-content:center;gap:10px;font-size:12px;font-weight:900}.science-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.science-card{border:1px solid #e6e8e1;background:#fff;border-radius:16px;overflow:hidden;transition:.18s}.science-card.blue{border-color:#dde8f4}.science-card.gold{border-color:#eee1bc}.science-head{height:56px;display:flex;align-items:center;gap:13px;padding:0 16px;background:#f6faf6;border-bottom:1px solid #e7ebe4}.science-card.blue .science-head{background:#f5f9ff}.science-card.gold .science-head{background:#fffaf0}.science-icon{width:33px;height:33px;border-radius:12px;background:#e3f2e8;display:grid;place-items:center;color:var(--green)}.science-card.blue .science-icon{background:#e9f3ff;color:#2f6e9f}.science-card.gold .science-icon{background:#fff0c9;color:#b3831f}.science-head h3{font-family:Georgia,"Times New Roman",serif;font-size:16px;margin:0;color:#142033}.mini-table{padding:0 14px 14px}.row{display:grid;grid-template-columns:110px 1fr;gap:10px;min-height:37px;border-bottom:1px solid #eef0eb;align-items:center;font-size:12px}.row:last-child{border-bottom:0}.row b{color:#365d51;font-weight:900}.row span{color:#475650;line-height:1.35}.pill{display:inline-flex;align-items:center;justify-content:center;height:23px;width:max-content;border-radius:999px;padding:0 10px;background:#dff2e6;color:#28674f;font-weight:900}.science-card.blue .pill{background:#dcecff;color:#2f6e9f}.science-card.gold .pill{background:#fff1be;color:#9b711c}.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.process-card{border:1px solid #ece6df;background:#fff;border-radius:16px;padding:18px;min-height:120px;transition:.18s}.process-card .picon{width:42px;height:42px;border-radius:15px;display:grid;place-items:center;margin-bottom:10px;background:#f2ecff;color:#7a62d0;font-size:21px}.process-card:nth-child(2) .picon{background:#e7f4ea;color:#0f5b4d}.process-card:nth-child(3) .picon{background:#e9f3ff;color:#2f6e9f}.process-card:nth-child(4) .picon{background:#f2ecff;color:#7a62d0}.process-card b{font-size:13.5px;color:#263743}.process-card p{font-size:11.2px;line-height:1.42;color:#68756d;margin:7px 0 0}
+    .right{padding:88px 26px 28px 18px;min-height:100vh}.right-card{border:1px solid #eae4dc;background:#fff;border-radius:22px;box-shadow:0 14px 32px rgba(31,37,31,.055);padding:22px;margin-bottom:22px}.right-card h2{font-family:Georgia,"Times New Roman",serif;font-size:20px;letter-spacing:-.02em;margin:0 0 18px;color:#142033}.task-list{display:flex;flex-direction:column;gap:14px}.task{display:grid;grid-template-columns:54px 1fr 20px;gap:14px;align-items:center;border:1px solid #ece6df;border-radius:17px;padding:14px;background:#fff;transition:.18s}.task:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(31,37,31,.06)}.task .ticon{width:54px;height:54px;border-radius:17px;display:grid;place-items:center;background:#fff0e3;color:#e9782f;font-size:25px}.task:nth-child(2) .ticon{background:#e7f4ea;color:#0f5b4d}.task:nth-child(3) .ticon{background:#e5f4eb;color:#0f5b4d}.task b{display:block;color:#1b2738;font-size:14.5px;margin-bottom:5px}.task span{display:block;color:#596861;font-size:12.3px;line-height:1.35}.chev{color:#8a918b;font-weight:900}.all-tasks{height:44px;display:flex;align-items:center;justify-content:center;gap:10px;color:var(--green);font-weight:900;font-size:13px;border-top:1px solid #eee8df;margin:18px -22px -8px;padding-top:16px}.report-img{height:178px;border-radius:17px;background:url('../../../assets/coach_report_nutrition.jpg') center/cover no-repeat;margin:12px 0 17px;border:1px solid #eee8df}.right-card p{font-size:14px;line-height:1.45;color:#5d6a64;margin:0 0 15px}.right-card .primary-btn{width:100%;justify-content:center}.updated{border-top:1px solid #eee8df;margin:18px -22px -8px;padding:14px 22px 0;color:#8a918b;font-size:12px}.demo-note{font-size:11.5px;color:#8a918b;line-height:1.4;margin-top:10px}
+    @media(max-width:1280px){.page{grid-template-columns:210px 1fr}.right{display:none}.hero{grid-template-columns:1fr 45%}.tip-grid,.science-grid{grid-template-columns:1fr 1fr}.process-grid{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <aside class="sidebar">
+    <a class="logo" href="../../dashboard-coach/" aria-label="easyGene"><img src="../../../assets/easygene_logo_quer.png" alt="easyGene"></a>
+    <nav class="menu" aria-label="Kundenportal">
+      <a class="nav-item" href="../../dashboard-coach/"><span class="ico">⌂</span><span>Übersicht</span></a>
+      <a class="nav-item active" href="../../modules-core/"><span class="ico">▦</span><span>Meine Module</span></a>
+      <div class="subnav">
+        <a class="active" href="./">Ernährung</a>
+        <a href="../../interpretation/detox/">Detox</a>
+        <a href="../../personal-overview/">Training</a>
+        <a href="../../interpretation/regeneration/">Schlaf & Chronotyp</a>
+        <a href="../../recommendations/">Mentale Resilienz</a>
+        <a href="../../modules-core/">Haut & Skincare</a>
+      </div>
+      <a class="nav-item" href="../../recommendations/"><span class="ico">✧</span><span>Empfehlungen</span></a>
+      <a class="nav-item" href="../../personal-plan/"><span class="ico">▣</span><span>Plan</span></a>
+      <a class="nav-item" href="../../privacy-export/"><span class="ico">▤</span><span>Report</span></a>
+      <a class="nav-item" href="../../genotypes/"><span class="ico">♙</span><span>Details</span></a>
+    </nav>
+    <div class="left-note"><div class="leaf">🌿</div><b>Wissen. Handeln. Wohlfühlen.</b><p>Deine Gene. Dein Plan. Dein bestes Ich.</p></div>
+  </aside>
+  <main class="main">
+    <div class="topbar">
+      <div class="view-toggle" aria-label="Dashboard-Ansicht umschalten">
+        <a class="active" href="../../dashboard-coach/"><span class="dot"></span>Alltag / Coach</a>
+        <a href="../../dashboard/"><span class="dot analysis"></span>Analyse / Optimierung</a>
+      </div>
+      <a class="round-icon" href="../../personal-plan/" title="Benachrichtigungen">♧</a>
+      <a class="round-icon" href="../../privacy-export/" title="Hilfe">?</a>
+      <div class="round-icon avatar">MM</div>
+      <a class="hello" href="../../privacy-export/">Hallo, Maria <span>⌄</span></a>
+    </div>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="breadcrumb"><span>Module</span><span>/</span><b>Ernährung</b></div>
+        <h1>Ernährung &<br>Entzündungsbalance</h1>
+        <p>Wir übersetzen deine genetischen Erkenntnisse in praktische Ernährungsempfehlungen, die zu deinem Alltag passen und entzündungsbezogene Alltagsfaktoren berücksichtigen.</p>
+        <div class="status-row">
+          <span class="status"><span class="badge-ico">✓</span>Analyse abgeschlossen</span>
+          <span class="status prio"><span class="badge-ico">★</span>3 priorisierte Empfehlungen</span>
+        </div>
+        <a class="primary-btn" href="../../recommendations/">Empfehlungen starten <span>→</span></a>
+      </div>
+      <div class="hero-image" aria-hidden="true"></div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Deine 3 wichtigsten Ernährungstipps</h2>
+      <div class="tip-grid">
+        <a class="tip-card" href="wissenschaft/">
+          <div class="icon">☕</div><h3>1. Koffein eher morgens</h3>
+          <p>Dein Körper baut Koffein eher langsamer ab. Kaffee daher besser vor 14 Uhr.</p>
+          <div class="checkline">Diese Woche ausprobieren</div><span class="soft-btn">Mehr dazu →</span>
+        </a>
+        <a class="tip-card" href="wissenschaft/">
+          <div class="icon">🐟</div><h3>2. Omega-3 im Fokus</h3>
+          <p>Fettreicher Fisch oder pflanzliche Omega-3-Quellen können für dich besonders sinnvoll sein.</p>
+          <div class="checkline">Diese Woche ausprobieren</div><span class="soft-btn">Mehr dazu →</span>
+        </a>
+        <a class="tip-card" href="wissenschaft/">
+          <div class="icon">🌿</div><h3>3. Entzündungsarm essen</h3>
+          <p>Gemüse, Vollkorn und gute Fette priorisieren, um deinen Alltag positiv zu unterstützen.</p>
+          <div class="checkline">Diese Woche ausprobieren</div><span class="soft-btn">Mehr dazu →</span>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Die Wissenschaft dazu</h2>
+      <div class="science-grid">
+        <a class="science-card" href="wissenschaft/">
+          <div class="science-head"><div class="science-icon">☕</div><h3>Koffeinmetabolismus</h3></div>
+          <div class="mini-table"><div class="row"><b>Relevante Gene / SNPs</b><span>CYP1A2, AHR</span></div><div class="row"><b>Evidenz</b><span class="pill">hoch</span></div><div class="row"><b>Interpretation</b><span>Variante deutet auf langsameren Koffeinabbau hin.</span></div><div class="row"><b>Hinweis</b><span>Genetik ist ein Einflussfaktor, nicht der einzige.</span></div></div>
+        </a>
+        <a class="science-card blue" href="wissenschaft/">
+          <div class="science-head"><div class="science-icon">🛡</div><h3>Entzündungsneigung</h3></div>
+          <div class="mini-table"><div class="row"><b>Relevante Gene / SNPs</b><span>IL6, TNF, IL1B</span></div><div class="row"><b>Evidenz</b><span class="pill">hoch</span></div><div class="row"><b>Interpretation</b><span>Regulationspfade sprechen für Fokus auf Alltag, Schlaf und Ernährung.</span></div><div class="row"><b>Hinweis</b><span>Lebensstil bleibt zentraler Hebel.</span></div></div>
+        </a>
+        <a class="science-card gold" href="wissenschaft/">
+          <div class="science-head"><div class="science-icon">💧</div><h3>Fettsäureprofil / Omega-3</h3></div>
+          <div class="mini-table"><div class="row"><b>Relevante Gene / SNPs</b><span>FADS1, FADS2</span></div><div class="row"><b>Evidenz</b><span class="pill">mittel</span></div><div class="row"><b>Interpretation</b><span>Pflanzliches Omega-3 kann individuell unterschiedlich effizient sein.</span></div><div class="row"><b>Hinweis</b><span>Individuelle Bedürfnisse können variieren.</span></div></div>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">So entsteht deine Empfehlung</h2>
+      <div class="process-grid">
+        <a class="process-card" href="../../genotypes/"><div class="picon">🧬</div><b>Relevante SNPs + Literatur</b><p>Wir analysieren relevante SNPs und prüfen aktuelle wissenschaftliche Literatur.</p></a>
+        <a class="process-card" href="../../recommendations/"><div class="picon">🌿</div><b>Alltagstauglich übersetzt</b><p>Komplexe Forschung wird in klare, umsetzbare Empfehlungen übersetzt.</p></a>
+        <a class="process-card" href="wissenschaft/"><div class="picon">🛡</div><b>Transparente Methodik</b><p>Empfehlungen basieren auf validierten Methoden und klaren Kriterien.</p></a>
+        <a class="process-card" href="../../privacy-export/"><div class="picon">🔒</div><b>Datenschutz</b><p>Deine Daten werden ausschließlich für deine Auswertung verwendet.</p></a>
+      </div>
+    </section>
+  </main>
+  <aside class="right">
+    <div class="right-card">
+      <h2>▣ Wichtig für dich diese Woche</h2>
+      <div class="task-list">
+        <a class="task" href="../../personal-plan/"><div class="ticon">☕</div><div><b>Letzten Kaffee vor 14 Uhr trinken</b><span>Diese Woche</span></div><span class="chev">›</span></a>
+        <a class="task" href="../../personal-plan/"><div class="ticon">🐟</div><div><b>2× Omega-3 einplanen</b><span>z. B. Lachs, Makrele oder Leinsamen</span></div><span class="chev">›</span></a>
+        <a class="task" href="../../personal-plan/"><div class="ticon">🌿</div><div><b>1 entzündungsarme Mahlzeit vorbereiten</b><span>Viel Gemüse, Vollkorn und gute Fette</span></div><span class="chev">›</span></a>
+      </div>
+      <a class="all-tasks" href="../../personal-plan/">Alle Aufgaben anzeigen →</a>
+    </div>
+    <div class="right-card">
+      <h2>Dein Ernährungsprofil</h2>
+      <p>Dein vollständiger Report mit allen Ergebnissen und Empfehlungen.</p>
+      <div class="report-img" aria-hidden="true"></div>
+      <a class="primary-btn" href="../../privacy-export/">Report Ernährung öffnen →</a>
+      <div class="updated">Letztes Update: 24.04.2026</div>
+    </div>
+    <div class="demo-note">Demo-Prototyp. Nicht-diagnostisch; die Darstellung dient der Produktvision und Nutzerführung.</div>
+  </aside>
+</div>
+</body>
+</html>
