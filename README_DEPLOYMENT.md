@@ -186,3 +186,18 @@ Erweiterte Analyse & Details
 ```
 
 Der bestehende Analysemodus bleibt als erweiterte Detail-/Datenansicht erhalten; Performance & Optimierung ist ein eigener zielgruppenorientierter Dashboard-Modus.
+
+
+## v2.1 Performance-Fokus und Link-Check
+
+Neu/aktualisiert:
+- Fokus-Auswahl: Performance-Kachel von hartem Schwarz auf Carbon / helles Anthrazit angepasst.
+- Performance & Optimierung: Unterseiten `module`, `empfehlungen`, `wissenschaft` ergänzt.
+- Performance-Navigation führt jetzt fokusspezifisch auf Dashboard, Module, Empfehlungen und Wissenschaft.
+- Coach-Dashboard-Navigation führt für Module/Empfehlungen stärker in die Coach-Modulstrecke.
+- Gesundheitsfokus hat weiterhin eigene Seiten für Module, Empfehlungen und Wissenschaft.
+
+Neue Performance-Routen:
+- `/app/dashboard-performance/module/`
+- `/app/dashboard-performance/empfehlungen/`
+- `/app/dashboard-performance/wissenschaft/`
