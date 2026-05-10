@@ -166,3 +166,23 @@ assets/health_report_firstaid.svg
 
 Die Gesundheitsansicht enthält jetzt eigene Module, Empfehlungen und Wissenschaft-/Methodikseiten.
 Der Hero verwendet ein medizinisch-vertrauensbildendes Visual; die Report-Karte nutzt eine Erste-Hilfe-/Kreuz-Optik.
+
+
+## v2.0 – Performance & Optimierung Fokus
+
+Neu ergänzt:
+
+```text
+app/dashboard-performance/index.html
+```
+
+Die Fokus-Auswahl umfasst nun 3+1 Ansichten:
+
+```text
+Lifestyle & Wohlbefinden
+Gesundheit & Alltag
+Performance & Optimierung
+Erweiterte Analyse & Details
+```
+
+Der bestehende Analysemodus bleibt als erweiterte Detail-/Datenansicht erhalten; Performance & Optimierung ist ein eigener zielgruppenorientierter Dashboard-Modus.
