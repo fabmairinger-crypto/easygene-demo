@@ -228,3 +228,9 @@ https://fabmairinger-crypto.github.io/easygene-demo/admin/business/product-mix/
 ## v2.4 – Datenlogik & Datenprodukte
 
 Neu: Business-Reiter `admin/business/data-products/index.html` mit Daten-Funnel, Score-/Trait-DataPacks, Aggregat-Reports, Lizenzmodellen, Governance-Leitplanken und Use Cases. Business-Navigation aktualisiert.
+
+
+## v2.5 – Markt & Go-to-Market
+- Neuer Business-Reiter `admin/business/market-gtm/` ergänzt.
+- Business-Navigation aktualisiert: Markt, Zielgruppen, Kanalstrategie, Wettbewerb und Validierung.
+- Keine harten externen Marktgrößen als Fakt behauptet; Fokus auf Zielgruppen-/Go-to-Market-Logik und Validierungsbedarf.
