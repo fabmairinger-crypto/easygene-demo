@@ -240,3 +240,8 @@ Neu: Business-Reiter `admin/business/data-products/index.html` mit Daten-Funnel,
 - Ersetzt das stilisierte Gesundheits-Hero-Visual durch ein fotoähnliches Ärztin-/Arzt-Hero-Bild.
 - Neue Asset-Datei: `assets/health_hero_doctor.png`.
 - Aktualisierte Gesundheitsseiten verweisen nun auf `.png` statt `.svg`.
+
+
+## v2.7 Health Hero Blend
+- Gesundheitsfokus nutzt jetzt ein breites, organisch in den blauen Verlauf integriertes Arzt-/Ärztin-Hero-Bild.
+- Aktualisierte Dateien: `assets/health_hero_doctor_wide.png` sowie die vier `app/dashboard-health/.../index.html` Seiten.
