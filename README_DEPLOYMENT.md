@@ -207,3 +207,19 @@ Neue Performance-Routen:
 - Lifestyle-/Coach-Navigation um „Wissenschaft“ ergänzt.
 - Fokus-spezifische Links in den Coach-Modulen korrigiert: Empfehlungen und Wissenschaft bleiben im jeweiligen Modul.
 - Plan & Kalender erhält eine professionellere Kalenderansicht mit Monats-/Wochenraster, Routinen und Legende.
+
+
+## v2.3 – Business: Produktmix & Erlöslogik
+
+Neu ergänzt:
+
+```text
+admin/business/product-mix/index.html
+```
+
+Die Business-Navigation wurde erweitert: MC Snapshot → Umsatz & Daten → Produktmix & Erlöslogik → Partner Pipeline → Use of Funds → Due Diligence.
+Die Produktmix-Seite zeigt die konservative COGS-Variante B aggregiert: ca. 82,20 € variable Kosten je Sample, Core 99 € knapp selbsttragend, Core 69 € negativ vor Upsell/Data, Break-even-Daten-ARPU ≥24,22 €, Ziel-ARPU ca. 32 € und Modul-Upsell-Logik.
+
+```text
+https://fabmairinger-crypto.github.io/easygene-demo/admin/business/product-mix/
+```
