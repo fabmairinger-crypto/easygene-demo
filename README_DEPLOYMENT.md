@@ -223,3 +223,8 @@ Die Produktmix-Seite zeigt die konservative COGS-Variante B aggregiert: ca. 82,2
 ```text
 https://fabmairinger-crypto.github.io/easygene-demo/admin/business/product-mix/
 ```
+
+
+## v2.4 – Datenlogik & Datenprodukte
+
+Neu: Business-Reiter `admin/business/data-products/index.html` mit Daten-Funnel, Score-/Trait-DataPacks, Aggregat-Reports, Lizenzmodellen, Governance-Leitplanken und Use Cases. Business-Navigation aktualisiert.
