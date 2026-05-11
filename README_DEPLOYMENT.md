@@ -234,3 +234,9 @@ Neu: Business-Reiter `admin/business/data-products/index.html` mit Daten-Funnel,
 - Neuer Business-Reiter `admin/business/market-gtm/` ergänzt.
 - Business-Navigation aktualisiert: Markt, Zielgruppen, Kanalstrategie, Wettbewerb und Validierung.
 - Keine harten externen Marktgrößen als Fakt behauptet; Fokus auf Zielgruppen-/Go-to-Market-Logik und Validierungsbedarf.
+
+
+## v2.6 Health Hero Image Patch
+- Ersetzt das stilisierte Gesundheits-Hero-Visual durch ein fotoähnliches Ärztin-/Arzt-Hero-Bild.
+- Neue Asset-Datei: `assets/health_hero_doctor.png`.
+- Aktualisierte Gesundheitsseiten verweisen nun auf `.png` statt `.svg`.
